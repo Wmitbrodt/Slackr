@@ -17,22 +17,14 @@ class ChatContainer extends Component {
 
   componentDidMount(){
      socket.on('chat message', (message) => {
-      this.setState({
-        messages: [...this.state.messages, message]
-      })
+      this.props.newMessage(message)
+      console.log('received message', message)
     })
   }
 
   handleOnChange(ev) {
    this.setState({ input: ev.target.value})
   }
-
-  // handleOnSubmit(ev) {
-  //   ev.preventDefault();
-  //   this.setState({ input: ''})
-  //  socket.emit('chat message', this.state.input)
-
-  // }
 
   handleOnSubmit(ev) {
     ev.preventDefault()

@@ -26,13 +26,14 @@ app.get('*', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-  console.log('a user connected');
+  console.log('Hey Will, a user connected!');
   socket.on('disconnect', () => {
-    console.log('a user disconnected')
+    console.log('Well Will...a user disconnected!')
   })
 
   socket.on('chat message', function(msg) {
-   io.emit('chat message', msg)
+    console.log(msg)
+   io.emit.broadcast('chat message', msg)
   })
 });
 
