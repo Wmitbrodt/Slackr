@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as messageActions from '../actions/messagesActions'
+import * as messageActions from '../../actions/messagesActions'
 import { bindActionCreators } from 'redux'
+import ChatLog from '../chatLog'
+import { Button } from 'react-bootstrap'
 
 class ChatContainer extends Component {
   constructor(props) {
@@ -28,25 +30,28 @@ class ChatContainer extends Component {
 
   handleOnSubmit(ev) {
     ev.preventDefault()
-    this.props.newMessage(this.state.input)
+    // this.props.newMessage(this.state.input)
     this.setState({ input: '' })
     socket.emit('chat message', this.state.input)
   }
 
   render() {
-    const messages = this.props.messages.map( (message) => {
+    const messages = this.props.messages.map((message) => {
       return ( <li> {message} </li> )
     })
+
     return (
       <div>
+        <ChatLog />
         <form onSubmit={this.handleOnSubmit}>
-        <input onChange={this.handleOnChange} value={this.state.input}/>
-        <input type='submit'/>
-      </form>
-      <h1>
-        {messages}
-     </h1>
-   </div>
+          <input onChange={this.handleOnChange} value={this.state.input}/>
+          <Button bsStyle="primary"> Submit </Button>
+          <input type='submit'/>
+        </form>
+        <h1>
+          {messages}
+        </h1>
+      </div>
     )
   }
 }
