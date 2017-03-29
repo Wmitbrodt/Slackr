@@ -1,25 +1,36 @@
 import React, { Component } from 'react'
 import { ListGroup, ListGroupItem, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
 
 class ChatRoomContainer extends Component {
-  constructor() {
+  constructor(props) {
     super()
   }
 
   render() {
+    const rooms = this.props.rooms.map( (room) => {
+      return (
+        <ListGroupItem onClick={()=> { console.log('well, alright, alright')}}>
+          {room.title}
+        </ListGroupItem>
+      )
+    })
     return (
-      <div>
-        <Col xs={4} mdPull={1}
+      <div >
+        <Col xs={4} mdPull={1}>
           <ListGroup>
-            <ListGroupItem>events</ListGroupItem>
-            <ListGroupItem>friday_lunches</ListGroupItem>
-            <ListGroupItem>general</ListGroupItem>
+            {rooms}
           </ListGroup>
         </Col>
       </div>
     )
+
   }
+
 }
 
-export default ChatRoomContainer
+function mapStateToProps(state, ownProps) {
+  return { rooms: state.rooms }
+}
+export default connect(mapStateToProps)(ChatRoomContainer)

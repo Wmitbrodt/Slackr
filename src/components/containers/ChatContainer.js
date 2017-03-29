@@ -60,7 +60,7 @@ class ChatContainer extends Component {
           </FormGroup>
         </form>
         <h3>
-          
+
         </h3>
       </div>
     )
@@ -68,7 +68,7 @@ class ChatContainer extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  return { messages: state.messages }
+  return { messages: state.activeRoom.messages, room: state.activeRoom }
 }
 
 function mapDispatchToProps(dispatch) {
