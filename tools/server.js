@@ -24,7 +24,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-// app.use(express.static('public'))
+app.use(express.static('tools/tmp/uploads'))
 
 app.get('*', function(req, res) {
   res.sendFile(path.join( __dirname, '../src/index.html'));
@@ -60,7 +60,7 @@ io.on('connection', function(socket) {
   socket.on('file_upload', (name, buffer) => {
     const fileName = __dirname + '/tmp/uploads/' + name;
 
-    fs.open(fileName, 'a', 0, (err, fd) => {
+    fs.open(fileName, 'a+', (err, fd) => {
       if (err) throw err;
 
       fs.write(fd, buffer, null, 'Binary', (err, written, buff) => {
@@ -69,8 +69,8 @@ io.on('connection', function(socket) {
         });
       })
     })
-    console.log('reached room, sending to', room)
-    socket.broadcast.to(room).emit('file_upload_success', buffer)
+    console.log('reached room, sending', fileName)
+    io.to(room).emit('file_upload_success', buffer)
   })
 });
 
