@@ -31,7 +31,7 @@ app.get('*', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-  console.log('Hey Will, a user connected')
+  console.log('a user connected')
   socket.on('subscribe', (data) => {
     room = data.room
     socket.join(room)
@@ -42,7 +42,7 @@ io.on('connection', function(socket) {
     console.log('leaving room', room)
   })
   socket.on('disconnect', () => {
-    console.log('Hey Will, a user disconnected')
+    console.log('a user disconnected')
   })
 
   // io.sockets.on('connect', (socket) => {
@@ -52,9 +52,9 @@ io.on('connection', function(socket) {
   // })
 
   socket.on('chat message', function(msg) {
-    console.log('sending message to', room)
+    console.log('sending message to', msg.room)
     console.log('this message', msg)
-    io.to(room).emit('chat message', JSON.stringify(msg))
+    io.to(msg.room).emit('chat message', JSON.stringify(msg))
   })
 
   socket.on('file_upload', (name, buffer) => {
@@ -70,7 +70,7 @@ io.on('connection', function(socket) {
       })
     })
     console.log('reached room, sending to', room)
-    socket.to(room).emit('file_upload_success', buffer)
+    socket.broadcast.to(room).emit('file_upload_success', buffer)
   })
 });
 
