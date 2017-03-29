@@ -1,68 +1,117 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as messageActions from '../../actions/messagesActions'
+import * as roomActions from '../../actions/roomActions'
 import { bindActionCreators } from 'redux'
 import ChatLog from '../chatLog'
-import { Button, Glyphicon, FormGroup, FormControl, InputGroup, PageHeader, Col, } from 'react-bootstrap'
+import FileUploader from '../fileUpload'
+import { Button, Glyphicon, FormGroup, FormControl, InputGroup, PageHeader, Col } from 'react-bootstrap'
+
+const io = require('socket.io-client')
+const socket = io();
 
 class ChatContainer extends Component {
   constructor(props) {
-
-     super()
+    super(props)
      this.state = {
        input : '',
-       messages: props.messages
+       file: '',
+       imagePreviewUrl: '',
+       messages: props.messages,
+       connected: false
      }
+
      this.handleOnChange = this.handleOnChange.bind(this)
      this.handleOnSubmit = this.handleOnSubmit.bind(this)
+     this._handleMessageEvent = this._handleMessageEvent.bind(this)
+    }
+
+
+  componentWillMount() {
+      if(!(this.state.connected)){
+        socket.emit('subscribe', {room: this.props.room.title})
+        this.setState({connected: true})
+     }
+    socket.on('file_upload_success', (fileName) => {
+      console.log('file upload action was emitted', fileName)
+      this.setState({ imageUrl: fileName })
+    })
+    // this._handleMessageEvent()
+    console.log('will mount initated')
    }
 
   componentDidMount(){
-     socket.on('chat message', (message) => {
-      this.props.newMessage({user: 'Will', message: message})
-      console.log('received message', message)
-    })
+    debugger
+    console.log('did mount')
+    this._handleMessageEvent()
+     // socket.on('chat message', (inboundMessage) => {
+
+     //   this.props.newMessage({room: this.props.room, newMessage: {user: 'antoin', message: inboundMessage}})
+     //   console.log('received message', inboundMessage)
+     // })
+  }
+
+  _handleMessageEvent(){
+    debugger;
+     socket.on('chat message', (inboundMessage) => {
+       this.props.newMessage({room: this.props.room, newMessage: {user: 'antoin', message: inboundMessage}})
+       console.log('received message', inboundMessage)
+     })
   }
 
   handleOnChange(ev) {
    this.setState({ input: ev.target.value})
   }
 
+
   handleOnSubmit(ev) {
     ev.preventDefault()
-    // this.props.newMessage(this.state.input)
+    socket.emit('chat message', {message: this.state.input, room: this.props.room.title})
+    // this.props.newMessage({room: this.props.room, newMessage: {user: 'antoin', message: this.state.input}})
     this.setState({ input: '' })
-    socket.emit('chat message', this.state.input)
+  }
+
+  handleOnUpload(imageUrl) {
+     this.setState({
+      imagePreviewUrl: imageUrl
+    })
   }
 
   render() {
-    const center = {
-      textAlign: 'center'
+    let imageView;
+    if(this.state.imageUrl) {
+      imageView = (
+        <div>
+          <Col xs={6} md={4}>
+            <image className="image-preview" src={this.state.imageUrl}  />
+          </Col>
+        </div>
+      )
     }
 
     return (
       <div>
-        <PageHeader>
-          Hello World and welcome
-        </PageHeader>
-        <ChatLog messages={this.props.messages} />
+        <PageHeader> Welcome to React Chat </PageHeader>
+        <ChatLog messages={this.props.messages} image={this.state.imageUrl || ''}/>
         <form>
           <FormGroup>
             <InputGroup>
-              <FormControl onChange={this.handleOnChange} value={this.state.input}/>
-              <InputGroup.Addon onClick={ () => { console.log('book em')}}>
-                <Glyphicon gylph="pencil" />
+            <FormControl onChange={this.handleOnChange} value={this.state.input}/>
+            <InputGroup.Addon >
+              <Glyphicon glyph="music" />
               </InputGroup.Addon>
-              <InputGroup.Button>
-                <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go. </Button>
-              </InputGroup.Button>
-            </InputGroup>
-          </FormGroup>
+            <InputGroup.Button>
+              <Button bsStyle="primary" type="submit" onClick={this.handleOnSubmit}> Send </Button>
+            </InputGroup.Button>
+          </InputGroup>
+        </FormGroup>
         </form>
-        <h3>
+        <FileUploader />
 
-        </h3>
-      </div>
+      <h1>
+
+     </h1>
+   </div>
     )
   }
 }

@@ -1,23 +1,34 @@
 import React, { Component } from 'react'
 import { ListGroup, ListGroupItem, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import * as roomActions from '../../actions/roomActions'
+import { bindActionCreators } from 'redux'
 
+const io = require('socket.io-client')
+const socket = io();
 
 class ChatRoomContainer extends Component {
   constructor(props) {
     super()
+    this.handleOnClick = this.handleOnClick.bind(this)
   }
 
+  handleOnClick(room){
+    socket.emit('unsubscribe')
+    socket.emit("subscribe", { room: room.title})
+    this.props.joinRoom(room)
+  }
   render() {
     const rooms = this.props.rooms.map( (room) => {
       return (
-        <ListGroupItem onClick={()=> { console.log('well, alright, alright')}}>
+        <ListGroupItem key={room.title} onClick={this.handleOnClick.bind(null, room)}>
           {room.title}
         </ListGroupItem>
       )
     })
+
     return (
-      <div >
+      <div>
         <Col xs={4} mdPull={1}>
           <ListGroup>
             {rooms}
@@ -33,4 +44,9 @@ class ChatRoomContainer extends Component {
 function mapStateToProps(state, ownProps) {
   return { rooms: state.rooms }
 }
-export default connect(mapStateToProps)(ChatRoomContainer)
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ joinRoom: roomActions.joinRoom}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatRoomContainer)

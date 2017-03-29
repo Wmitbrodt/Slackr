@@ -7,6 +7,10 @@ export default function activeRoomReducer(state = initialState.activeRoom, actio
         title: action.room.title,
         messages: action.room.messages
       })
+      case 'NEW_MESSAGE':
+      return Object.assign({}, action.payload.room, {
+        messages: [...action.payload.room.messages, action.payload.newMessage]
+      }) 
     default:
      return state;
   }
