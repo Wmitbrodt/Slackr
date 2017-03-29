@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as messageActions from '../../actions/messagesActions'
 import { bindActionCreators } from 'redux'
 import ChatLog from '../chatLog'
-import { Button } from 'react-bootstrap'
+import { Button, Glyphicon, FormGroup, FormControl, InputGroup, PageHeader, Col, } from 'react-bootstrap'
 
 class ChatContainer extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class ChatContainer extends Component {
 
   componentDidMount(){
      socket.on('chat message', (message) => {
-      this.props.newMessage(message)
+      this.props.newMessage({user: 'Will', message: message})
       console.log('received message', message)
     })
   }
@@ -36,21 +36,32 @@ class ChatContainer extends Component {
   }
 
   render() {
-    const messages = this.props.messages.map((message) => {
-      return ( <li> {message} </li> )
-    })
+    const center = {
+      textAlign: 'center'
+    }
 
     return (
       <div>
-        <ChatLog />
-        <form onSubmit={this.handleOnSubmit}>
-          <input onChange={this.handleOnChange} value={this.state.input}/>
-          <Button bsStyle="primary"> Submit </Button>
-          <input type='submit'/>
+        <PageHeader>
+          Hello World and welcome
+        </PageHeader>
+        <ChatLog messages={this.props.messages} />
+        <form>
+          <FormGroup>
+            <InputGroup>
+              <FormControl onChange={this.handleOnChange} value={this.state.input}/>
+              <InputGroup.Addon onClick={ () => { console.log('book em')}}>
+                <Glyphicon gylph="pencil" />
+              </InputGroup.Addon>
+              <InputGroup.Button>
+                <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go. </Button>
+              </InputGroup.Button>
+            </InputGroup>
+          </FormGroup>
         </form>
-        <h1>
-          {messages}
-        </h1>
+        <h3>
+          
+        </h3>
       </div>
     )
   }
