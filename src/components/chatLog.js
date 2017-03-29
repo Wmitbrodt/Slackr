@@ -2,7 +2,7 @@
 import React from 'react'
 import { Col, Grid, Row } from 'react-bootstrap'
 import ChatDetail from './chatDetail'
-import RoomsContainer from './containers/roomsContainer'
+import ChatRoomContainer from './containers/ChatRoomContainer'
 
 export default (props) => {
 
@@ -13,7 +13,7 @@ export default (props) => {
     <div>
       <Grid>
         <Row className="show-grid">
-          <RoomsContainer />
+          <ChatRoomContainer />
            <Col xs={8} xs={8}>
               {messages}
             </Col>

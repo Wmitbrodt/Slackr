@@ -10,9 +10,9 @@ import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormC
 class ChatContainer extends Component {
   constructor(props) {
     super(props)
+
      this.state = {
        input : '',
-       file: '',
        imagePreviewUrl: '',
        messages: props.messages,
        connected: false
@@ -21,6 +21,7 @@ class ChatContainer extends Component {
      this.handleOnChange = this.handleOnChange.bind(this)
      this.handleOnSubmit = this.handleOnSubmit.bind(this)
      this._handleMessageEvent = this._handleMessageEvent.bind(this)
+     this._handleFileUpload = this._handleFileUpload.bind(this)
    }
 
 
@@ -29,13 +30,8 @@ class ChatContainer extends Component {
         socket.emit('subscribe', {room: this.props.room.title})
         this.setState({connected: true})
      }
-    socket.on('file_upload_success', (fileName) => {
-      console.log('file upload action was emitted', fileName)
-      // this.setState({ imageUrl: fileName })
-      this.props.newMessage({room: this.props.room, newMessage: { user: 'antoin', imageUrl: fileName}})
-    })
-    // this._handleMessageEvent()
-    console.log('will mount initated')
+      this._handleFileUpload()
+      console.log('will mount initated')
    }
 
   componentDidMount(){
@@ -44,10 +40,17 @@ class ChatContainer extends Component {
   }
 
   _handleMessageEvent(){
-     socket.on('chat message', (inboundMessage) => {
-       this.props.newMessage({room: this.props.room, newMessage: {user: 'antoin', message: inboundMessage}})
+    socket.on('chat message', (inboundMessage) => {
+       this.props.newMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: inboundMessage}})
        console.log('received message', inboundMessage)
      })
+  }
+
+  _handleFileUpload(){
+    socket.on('file_upload_success', (data) => {
+      console.log('file upload action was emitted', data.file)
+      this.props.newMessage({room: this.props.room, newMessage: { user: data.user, imageUrl: data.file}})
+    })
   }
 
   handleOnChange(ev) {
@@ -57,8 +60,8 @@ class ChatContainer extends Component {
 
   handleOnSubmit(ev) {
     ev.preventDefault()
-    socket.emit('chat message', {message: this.state.input, room: this.props.room.title})
-    // this.props.newMessage({room: this.props.room, newMessage: {user: 'antoin', message: this.state.input}})
+    socket.emit('chat message', {message: this.state.input, room: this.props.room.title, user: this.props.user})
+
     this.setState({ input: '' })
   }
 
@@ -72,17 +75,17 @@ class ChatContainer extends Component {
 
     return (
       <div>
-        <PageHeader> Welcome to React Chat </PageHeader>
+        <PageHeader> Welcome to React Chat, {this.props.user} </PageHeader>
         <ChatLog messages={this.props.messages} image={this.state.imageUrl || ''}/>
         <form>
           <FormGroup>
             <InputGroup>
             <FormControl onChange={this.handleOnChange} value={this.state.input}/>
             <InputGroup.Addon >
-              <Glyphicon glyph="music" />
+              <Glyphicon glyph="pencil" />
               </InputGroup.Addon>
             <InputGroup.Button>
-              <Button bsStyle="primary" type="submit" onClick={this.handleOnSubmit}> Send </Button>
+              <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go!!! </Button>
             </InputGroup.Button>
           </InputGroup>
         </FormGroup>
@@ -96,7 +99,7 @@ class ChatContainer extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  return { messages: state.activeRoom.messages, room: state.activeRoom }
+  return { messages: state.activeRoom.messages, room: state.activeRoom, user: state.user }
 }
 
 function mapDispatchToProps(dispatch) {

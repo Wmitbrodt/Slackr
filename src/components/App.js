@@ -1,33 +1,31 @@
 import React from 'react'
 import ChatContainer from './containers/ChatContainer'
 import HomePage from './common/HomePage'
+import { connect } from 'react-redux'
 
-export default class App extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      user: ''
-    }
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.currentUser = this.currentUser.bind(this)
 
-    this.updateUser = this.updateUser.bind(this)
   }
 
-  updateUser(user){
-    this.setState({ user })
-    localStorage.setItem('user', this.state.input)
-  }
 
   currentUser(){
-   if (localStorage.getItem('user') == null){
-    return false
-   }
-    return true
+   return !!this.props.user
   }
   render() {
     return (
       <div>
-        {this.currentUser() ? <ChatContainer /> : <HomePage newUser={this.updateUser}/>}
+        {this.currentUser() ? <ChatContainer /> : <HomePage />}
       </div>
     )
   }
 }
+
+
+function mapStateToProps(state){
+ return { user: state.user }
+}
+
+export default connect(mapStateToProps)(App)
