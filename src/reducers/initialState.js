@@ -17,7 +17,7 @@ export default {
      },
     { title: 'general',
      messages: [ {user: 'Michael Jackson', message: 'Tee-hee-hee'}, {user: 'Bill Murray', message: 'Michael, you were always super talented...'}]
-    }
+   },
     { title: 'january-2017-bootcamp',
      messages: [ {user: 'will', message: 'S.O.M. Smear'}, {user: 'Bill Murray', message: 'Gotta love a good Smear...!'}]
     }

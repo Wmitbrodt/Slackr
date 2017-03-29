@@ -6,11 +6,14 @@ import open from 'open';
 import favicon from 'serve-favicon';
 import socket from 'socket.io'
 import { Server } from 'http'
-import bodyParse from 'body-parser'
+import bodyParser from 'body-parser'
 import fs from 'fs'
+import mongoose from 'mongoose'
+import Message from '../db/messageSchema'
 /* eslint-disable no-console */
 
-const port = 3000;
+
+const port = 5000;
 const app = express();
 const server = Server(app)
 const compiler = webpack(config);
@@ -23,7 +26,8 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('tools/tmp/uploads'))
 
 app.get('*', function(req, res) {
@@ -41,15 +45,10 @@ io.on('connection', function(socket) {
   socket.on('unsubscribe', () => { socket.leave(room)
     console.log('leaving room', room)
   })
+
   socket.on('disconnect', () => {
     console.log('a user disconnected')
   })
-
-  // io.sockets.on('connect', (socket) => {
-  //   socket.on('subscribe', (data) => {
-  //     console.log('joined a room')
-  //   })
-  // })
 
   socket.on('chat message', function(msg) {
     console.log('sending message to', msg.room)
@@ -76,11 +75,24 @@ io.on('connection', function(socket) {
   })
 });
 
+mongoose.connect('mongodb://admin:aech1234@ds163397.mlab.com:63397/react-chat')
+const db = mongoose.connection;
 
-server.listen(port, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    open(`http://localhost:${port}`);
-  }
-});
+db.once('open', () => {
+ server.listen(port, function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      open(`http://localhost:${port}`);
+    }
+ });
+
+  app.post('/messages', (req, res) => {
+    console.log(req.body)
+      let message = new Message(req.body)
+      message.save((err) => {
+        if (err) return err
+       })
+  })
+
+})

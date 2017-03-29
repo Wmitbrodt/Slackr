@@ -1,12 +1,3 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import * as messageActions from '../../actions/messagesActions'
-import * as roomActions from '../../actions/roomActions'
-import { bindActionCreators } from 'redux'
-import ChatLog from '../chatLog'
-import FileUploader from '../fileUpload'
-import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl } from 'react-bootstrap'
-
 class ChatContainer extends Component {
   constructor(props) {
     super(props)
@@ -22,21 +13,29 @@ class ChatContainer extends Component {
      this.handleOnSubmit = this.handleOnSubmit.bind(this)
      this._handleMessageEvent = this._handleMessageEvent.bind(this)
      this._handleFileUpload = this._handleFileUpload.bind(this)
+     this._init = this._init.bind(this)
    }
 
 
   componentWillMount() {
-      if(!(this.state.connected)){
-        socket.emit('subscribe', {room: this.props.room.title})
-        this.setState({connected: true})
-     }
-      this._handleFileUpload()
-      console.log('will mount initated')
-   }
+    this._init()
+  }
 
   componentDidMount(){
-   console.log('did mount')
-   this._handleMessageEvent()
+    console.log('did mount')
+    this._handleFileUpload()
+    this._handleMessageEvent()
+  }
+
+  handleOnChange(ev) {
+    this.setState({ input: ev.target.value})
+  }
+
+  handleOnSubmit(ev) {
+    ev.preventDefault()
+    socket.emit('chat message', {message: this.state.input, room: this.props.room.title, user: this.props.user})
+
+    this.setState({ input: '' })
   }
 
   _handleMessageEvent(){
@@ -53,22 +52,11 @@ class ChatContainer extends Component {
     })
   }
 
-  handleOnChange(ev) {
-   this.setState({ input: ev.target.value})
-  }
-
-
-  handleOnSubmit(ev) {
-    ev.preventDefault()
-    socket.emit('chat message', {message: this.state.input, room: this.props.room.title, user: this.props.user})
-
-    this.setState({ input: '' })
-  }
-
-  handleOnUpload(imageUrl) {
-     this.setState({
-      imagePreviewUrl: imageUrl
-    })
+  _init(){
+    if(!(this.state.connected)){
+      socket.emit('subscribe', {room: this.props.room.title})
+        this.setState({connected: true})
+    }
   }
 
   render() {
@@ -82,10 +70,10 @@ class ChatContainer extends Component {
             <InputGroup>
             <FormControl onChange={this.handleOnChange} value={this.state.input}/>
             <InputGroup.Addon >
-              <Glyphicon glyph="pencil" />
+              <Glyphicon glyph="music" />
               </InputGroup.Addon>
             <InputGroup.Button>
-              <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go!!! </Button>
+              <Button bsStyle="primary" type="submit" onClick={this.handleOnSubmit}> Send </Button>
             </InputGroup.Button>
           </InputGroup>
         </FormGroup>
