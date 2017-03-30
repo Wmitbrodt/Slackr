@@ -10,7 +10,6 @@ import bodyParser from 'body-parser'
 import fs from 'fs'
 import mongoose from 'mongoose'
 import Message from '../db/messageSchema'
-/* eslint-disable no-console */
 
 
 const port = 5000;
@@ -29,6 +28,14 @@ app.use(require('webpack-hot-middleware')(compiler));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('tools/tmp/uploads'))
+
+app.get('/messages', (req, res) => {
+
+  Message.find({room: room}, (err, docs) => {
+    res.json(docs)
+  })
+
+})
 
 app.get('*', function(req, res) {
   res.sendFile(path.join( __dirname, '../src/index.html'));
@@ -87,12 +94,14 @@ db.once('open', () => {
     }
  });
 
+
   app.post('/messages', (req, res) => {
     console.log(req.body)
-      let message = new Message(req.body)
+      let message = new Message({user: req.body.user, content: req.body.message, room: room})
       message.save((err) => {
         if (err) return err
-       })
+      })
+      res.json(req.body)
   })
 
 })

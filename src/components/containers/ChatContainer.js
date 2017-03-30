@@ -1,3 +1,12 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as messageActions from '../../actions/messagesActions'
+import * as roomActions from '../../actions/roomActions'
+import { bindActionCreators } from 'redux'
+import ChatLog from '../chatLog'
+import FileUploader from '../fileUpload'
+import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl } from 'react-bootstrap'
+
 class ChatContainer extends Component {
   constructor(props) {
     super(props)
@@ -40,7 +49,7 @@ class ChatContainer extends Component {
 
   _handleMessageEvent(){
     socket.on('chat message', (inboundMessage) => {
-       this.props.newMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: inboundMessage}})
+       this.props.createMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: inboundMessage}})
        console.log('received message', inboundMessage)
      })
   }
@@ -54,6 +63,7 @@ class ChatContainer extends Component {
 
   _init(){
     if(!(this.state.connected)){
+      this.props.fetchRoom()
       socket.emit('subscribe', {room: this.props.room.title})
         this.setState({connected: true})
     }
@@ -91,7 +101,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ newMessage: messageActions.newMessage }, dispatch)
+  return bindActionCreators({ createMessage: messageActions.createMessage, fetchRoom: roomActions.fetchRoomData }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatContainer)
