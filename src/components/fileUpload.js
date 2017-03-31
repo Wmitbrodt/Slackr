@@ -52,7 +52,7 @@ handleFile(ev) {
   render() {
     let processing;
     let uploaded;
-
+    // debugger
     if (this.state.data_uri) {
       uploaded = (
         <div>

@@ -1,24 +1,25 @@
-
 import React from 'react'
-import { Col, Grid, Row } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap' 
 import ChatDetail from './chatDetail'
-import ChatRoomContainer from './containers/ChatRoomContainer'
+import RoomsContainer from './containers/roomsContainer'
 
 export default (props) => {
-
   const messages = props.messages.map ( (message) => {
-    return ( <ChatDetail user={message.user} message={message.content} image={message.imageUrl}/> ) })
 
+    return ( <ChatDetail user={message.user} message={message.content} image={message.image || ''}/> ) })
+     
   return (
     <div>
-      <Grid>
+      <Grid> 
         <Row className="show-grid">
-          <ChatRoomContainer />
+          <RoomsContainer /> 
            <Col xs={8} xs={8}>
-              {messages}
-            </Col>
+              {messages} 
+            </Col>    
          </Row>
-      </Grid>
+      </Grid> 
     </div>
   )
 }
+
+

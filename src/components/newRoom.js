@@ -6,7 +6,7 @@ export default (props) => {
     <ListGroupItem>
       <form>
         <FormGroup>
-          <ControlLabel> Add a new Chat Room </ControlLabel>
+          <ControlLabel> Create a new Room </ControlLabel>
           <FormControl onChange={props.handleOnChange} value={props.value}>
           </FormControl>
           <Button
@@ -14,9 +14,11 @@ export default (props) => {
             bsSize="small"
             type="submit"
             onClick={props.handleNewRoom}
-            block> Send </Button>
+            block> Create </Button>
         </FormGroup>
       </form>
     </ListGroupItem>
   )
+
+
 }

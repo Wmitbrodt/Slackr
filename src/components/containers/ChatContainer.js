@@ -7,6 +7,7 @@ import ChatLog from '../chatLog'
 import FileUploader from '../fileUpload'
 import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl } from 'react-bootstrap'
 
+
 class ChatContainer extends Component {
   constructor(props) {
     super(props)
@@ -41,15 +42,15 @@ class ChatContainer extends Component {
   }
 
   handleOnSubmit(ev) {
+
     ev.preventDefault()
     socket.emit('chat message', {message: this.state.input, room: this.props.room.title, user: this.props.user})
-
     this.setState({ input: '' })
   }
 
   _handleMessageEvent(){
     socket.on('chat message', (inboundMessage) => {
-       this.props.createMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: inboundMessage}})
+       this.props.createMessage({room: this.props.room, newMessage: {user: JSON.parse(inboundMessage).user, message: JSON.parse(inboundMessage).message}})
        console.log('received message', inboundMessage)
      })
   }
@@ -57,7 +58,7 @@ class ChatContainer extends Component {
   _handleFileUpload(){
     socket.on('file_upload_success', (data) => {
       console.log('file upload action was emitted', data.file)
-      this.props.newMessage({room: this.props.room, newMessage: { user: data.user, imageUrl: data.file}})
+      this.props.createMessage({room: this.props.room, newMessage: { user: data.user, image: data.file}})
     })
   }
 
@@ -72,18 +73,18 @@ class ChatContainer extends Component {
   render() {
 
     return (
-      <div>
-        <PageHeader> Welcome to React Chat, {this.props.user} </PageHeader>
-        <ChatLog messages={this.props.messages} image={this.state.imageUrl || ''}/>
+      <div className='container'>
+        <PageHeader> Welcome to Demo Day, {this.props.user} </PageHeader>
+        <ChatLog messages={this.props.messages} image={''}/>
         <form>
           <FormGroup>
             <InputGroup>
             <FormControl onChange={this.handleOnChange} value={this.state.input}/>
             <InputGroup.Addon >
-              <Glyphicon glyph="music" />
+              <Glyphicon glyph="pencil" />
               </InputGroup.Addon>
             <InputGroup.Button>
-              <Button bsStyle="primary" type="submit" onClick={this.handleOnSubmit}> Send </Button>
+              <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go! </Button>
             </InputGroup.Button>
           </InputGroup>
         </FormGroup>
@@ -101,7 +102,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ createMessage: messageActions.createMessage, fetchRoom: roomActions.fetchRoomData }, dispatch)
+  return bindActionCreators({ createMessage: messageActions.saveMessage, fetchRoom: roomActions.fetchRoomData}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatContainer)

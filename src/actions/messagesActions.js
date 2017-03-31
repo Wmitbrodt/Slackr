@@ -2,10 +2,11 @@ import messageApi from '../api/messageApi'
 
 export function saveMessage(data) {
   let payload;
-  if(data.message){
-    payload = {room: data.room, newMessage: {user: data.message.user, content: data.message.message}}
+  
+  if(!data.newMessage.image){
+    payload = {room: data.room, newMessage: {user: data.newMessage.user, content: data.newMessage.message}}
   } else {
-    payload = {room: data.room, newMessage: {user: data.newMessage.user, imageUrl: data.newMessage.imageUrl}}
+    payload = {room: data.room, newMessage: {user: data.newMessage.user, image: data.newMessage.image}}
   }
 
   return { type: 'NEW_MESSAGE', payload }
