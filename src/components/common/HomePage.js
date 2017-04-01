@@ -35,7 +35,7 @@ class HomePage extends Component {
               <InputGroup value={this.state.input}>
                <FormControl onChange={this.handleOnChange} />
                 <br/><br/>
-               <Button bsStyle="success" type='submit'> Go! </Button>
+               <Button bsStyle="danger" type='submit'> Go! </Button>
               </InputGroup>
             </FormGroup>
           </form>
