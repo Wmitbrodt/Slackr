@@ -70,11 +70,29 @@ class ChatContainer extends Component {
     }
   }
 
+
   render() {
 
-    return (
-      <div className='container'>
-        <PageHeader> Welcome to Demo Day, {this.props.user} </PageHeader>
+  return (
+
+         <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Willr Chat</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Navbar.Text>
+              Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
+            </Navbar.Text>
+            <Navbar.Text pullRight>
+              Have a great day!
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Navbar>
+
+        <div className="container">
         <ChatLog messages={this.props.messages} image={''}/>
         <form>
           <FormGroup>
@@ -92,7 +110,9 @@ class ChatContainer extends Component {
         <FileUploader />
 
        </div>
+     
     )
+
   }
 
 }
