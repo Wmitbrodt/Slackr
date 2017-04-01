@@ -1,5 +1,7 @@
-$green: #02CCBA;
+$green: rgb(2, 204, 186);
+$green-tint: rgba(2, 204, 186, 0.1);
 $blue: rgb(2,160,184);
+$blue-tint: rgba(2, 160, 184, 0.1);
 
 @mixin transition($x) {
   -webkit-transition: $x;
@@ -15,13 +17,25 @@ $blue: rgb(2,160,184);
   border-radius: $x;
 }
 
-h1 {
-  color: red;
+///////////////* HOME PAGE *////////////////
+#home-h1 {
+  color: #fff;
 }
 
 #main {
   //background: linear-gradient(to right, #02CCBA 0%, #348ac7 100%);
   min-height: 100%;
+}
+
+#home {
+  //background: linear-gradient(to right, #02CCBA 0%, #348ac7 100%);
+  height: 100%!important;
+  background: linear-gradient(#614385, #516395);
+  text-align: center;
+}
+
+#home-h1 {
+  padding: 4em 0 2em 0;
 }
 
 .btn-transparent {
@@ -38,7 +52,7 @@ button.btn-custom {
   color: $green;
   border-color: $green;
   letter-spacing: .1em;
-  padding: 0.4em 1.75em;
+  padding: .2em 2.5em .2em 2.5em;
   border-radius: .5em;
   font-size: 1.2em;
   @include transition(all 0.4s ease-in-out);
@@ -49,6 +63,41 @@ button.btn-custom {
   }
 }
 
-.panel-info > .panel-heading {
-  color: blue;
+
+/* Forms */
+
+input.form-control {
+  background: linear-gradient(to right, $green-tint 0%, $blue-tint 100%);
+  border-radius: .5em;
+  border-top-right-radius: .5em!important;
+  border-bottom-right-radius: .5em!important;
+  padding: .2em 6em .2em 6em;
+  border-color: $green;
+}
+
+input.input-group input.form-control {
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  border-color: $green;
+}
+
+input.input-group input.form-control:first-child {
+    border-top-right-radius: 0.5em!important;
+    border-bottom-right-radius: 0.5em!important;
+}
+
+input.form-control:focus {
+    border-color: $green;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+
+
+input, select, textarea{
+  font-size: 1.2em;
+  padding: 10px;
+  text-shadow: 0px 0px 0px $green;
+  -webkit-text-fill-color: transparent;
 }

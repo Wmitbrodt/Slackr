@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import * as userActions from '../../actions/userActions'
 import { connect } from 'react-redux'
-import { InputGroup, Button, PageHeader, FormGroup, FormControl, Navbar } from 'react-bootstrap'
-import '../../style/css/style.css'
+import { InputGroup, Button, PageHeader, FormGroup, FormControl, Row, Col } from 'react-bootstrap'
+
 
 class HomePage extends Component {
   constructor(props){
@@ -27,18 +27,31 @@ class HomePage extends Component {
   }
 
 
+
   render(){
     return (
-       <PageHeader> What's up Doc? Got a name??? </PageHeader>
-          <form onSubmit={this.handleOnSubmit}>
-            <FormGroup>
-              <InputGroup value={this.state.input}>
-               <FormControl onChange={this.handleOnChange} />
-                <br/><br/>
-               <Button className="btn-custom" type='submit'> Let's do this. </Button>
-              </InputGroup>
-            </FormGroup>
-          </form>
+    <div id="home">
+      <div className="container">
+        <Row id="home-row">
+          <Col md={8} mdPush={2} xs={12}>
+             <h1 id="home-h1"> What's up Doc? Got a name??? </h1>
+           </Col>
+        </Row>
+        <Row id="home-row">
+          <Col md={6} mdPush={4} xs={12}>
+            <form onSubmit={this.handleOnSubmit}>
+              <FormGroup>
+                <InputGroup value={this.state.input}>
+                 <FormControl onChange={this.handleOnChange} />
+                  <br/><br/>
+                 <Button className="btn-custom" type='submit'> Get Chatting </Button>
+                </InputGroup>
+              </FormGroup>
+            </form>
+          </Col>
+       </Row>
+     </div>
+    </div>
 
     )
   }
