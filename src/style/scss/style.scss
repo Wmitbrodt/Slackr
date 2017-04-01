@@ -1,16 +1,49 @@
-.test {
-  h1 {
-    .hello {
-      color: red;
-      background: blue;
-    }
-  }
+$green: rgb(67, 167, 138);
+$blue: rgb(2,160,184);
+
+@mixin transition($x) {
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  transition: $x;
 }
 
-body {
-  background-color: red;
+@mixin border-radius($x) {
+  -webkit-border-radius: $x;
+  -moz-border-radius: $x;
+  -ms-border-radius: $x;
+  border-radius: $x;
+}
+
+h1 {
+  color: red;
 }
 
 #main {
-  background-color: teal;
+  background: linear-gradient(to right, #02CCBA 0%, #348ac7 100%);
+  min-height: 100%;
+}
+
+.btn-transparent {
+  background-color: #fff;
+  margin-top: 7px;
+  color: #777;
+  @include transition(all 0.4s ease-in-out);
+  }
+
+
+.btn-custom {
+  background-color: $green;
+  margin-top: 7px;
+  color: #fff;
+  padding: 6px 17px;
+  @include transition(all 0.4s ease-in-out);
+  &:hover {
+    color: #fff;
+    background-color: $blue;
+  }
+}
+
+.panel-info > .panel-heading {
+  color: blue;
 }

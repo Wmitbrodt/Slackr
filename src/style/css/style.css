@@ -1,9 +1,31 @@
-.test h1 .hello {
-  color: red;
-  background: blue; }
-
-body {
-  background-color: red; }
+h1 {
+  color: red; }
 
 #main {
-  background-color: teal; }
+  background: linear-gradient(to right, #02CCBA 0%, #348ac7 100%);
+  min-height: 100%; }
+
+.btn-transparent {
+  background-color: #fff;
+  margin-top: 7px;
+  color: #777;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; }
+
+.btn-custom {
+  background-color: #43a78a;
+  margin-top: 7px;
+  color: #fff;
+  padding: 6px 17px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; }
+  .btn-custom:hover {
+    color: #fff;
+    background-color: #02a0b8; }
+
+.panel-info > .panel-heading {
+  color: blue; }
