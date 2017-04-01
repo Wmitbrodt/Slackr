@@ -5,7 +5,7 @@ import * as roomActions from '../../actions/roomActions'
 import { bindActionCreators } from 'redux'
 import ChatLog from '../chatLog'
 import FileUploader from '../fileUpload'
-import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl } from 'react-bootstrap'
+import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl, Navbar, Header } from 'react-bootstrap'
 
 
 class ChatContainer extends Component {
@@ -91,7 +91,7 @@ class ChatContainer extends Component {
         </form>
         <FileUploader />
 
-   </div>
+       </div>
     )
   }
 

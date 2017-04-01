@@ -47,7 +47,6 @@ class RoomsContainer extends Component {
 
   render() {
     const rooms = this.props.rooms.map((room) => {
-    debugger
       return (
         <ListGroupItem key={room.title} onClick={this.handleOnClick.bind(null, room)}>
           {room.title}
@@ -57,7 +56,7 @@ class RoomsContainer extends Component {
 
     return (
       <div>
-        <Col xs={4} mdPull={1}> 
+        <Col xs={4} mdPull={1}>
           <ListGroup>
             {rooms}
             <NewRoom handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>

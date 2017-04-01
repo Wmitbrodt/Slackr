@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import * as userActions from '../../actions/userActions'
 import { connect } from 'react-redux'
-import { InputGroup, Button, PageHeader, FormGroup, FormControl } from 'react-bootstrap'
-
+import { InputGroup, Button, PageHeader, FormGroup, FormControl, Navbar } from 'react-bootstrap'
+import '../../style/css/style.css'
 
 class HomePage extends Component {
   constructor(props){
@@ -26,20 +26,20 @@ class HomePage extends Component {
     this.setState({ input: ''})
   }
 
+
   render(){
     return (
-      <div className='container'>
        <PageHeader> What's up Doc? Got a name??? </PageHeader>
           <form onSubmit={this.handleOnSubmit}>
             <FormGroup>
               <InputGroup value={this.state.input}>
                <FormControl onChange={this.handleOnChange} />
                 <br/><br/>
-               <Button className="btn-custom" type='submit'> Go! </Button>
+               <Button className="btn-custom" type='submit'> Let's do this. </Button>
               </InputGroup>
             </FormGroup>
           </form>
-        </div>
+
     )
   }
 }

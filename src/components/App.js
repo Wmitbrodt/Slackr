@@ -2,6 +2,7 @@ import React from 'react'
 import ChatContainer from './containers/ChatContainer'
 import HomePage from './common/HomePage'
 import { connect } from 'react-redux'
+import '../style/css/style.css'
 
 class App extends React.Component {
   constructor(props){

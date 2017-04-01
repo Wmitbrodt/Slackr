@@ -1,29 +1,30 @@
 export default {
   messages: [
-    { user: 'ChatBot',
-      message: 'Welcome to React Chat -- Built using React, Redux, Express, and Socket.io'
-    }, 
-    { user: 'Mac Miller',
-      message: 'I tots agree'
+    { user: 'Will',
+      message: 'Hello World!'
     },
-    { user: 'Scott Mescudi',
-      message: '!!!!!!!!!!!!!!!! I feel immortal'
-    } 
+    { user: 'Bill Murray',
+      message: 'Dogs and Cats, living together...mass hysteria!'
+    },
+    { user: 'Michael Jackson',
+      message: 'Tee-heee-heee!'
+    }
   ],
-  
+
   rooms: [
-    { title: 'Music is Life', 
-     messages: [ { user: 'ChatBot', message: 'Welcome to React Chat -- Built using React, Redux, Express, and Socket.io'}, { user:'Scott Mescudi', message: 'Wait, what are these words?'} ]
+    { title: 'events',
+     messages: [ { user: 'will', message: 'hello world'}, { user:'Bill Murray', mesage: 'Dogs and Cats living together...mass hysteria'} ]
      },
-    { title: 'Come share your feelings',
-     messages: [ {user: 'Scott Mescudi', message: 'Someone explain Sockets to me Please'}, {user: 'Q-Tip', message: 'I have no idea'}] 
+    { title: 'general',
+     messages: [ {user: 'Michael Jackson', message: 'Tee-hee-hee'}, {user: 'Bill Murray', message: 'Michael, you were always super talented...'}]
+   },
+    { title: 'january-2017-bootcamp',
+     messages: [ {user: 'will', message: 'S.O.M. Smear'}, {user: 'Bill Murray', message: 'Gotta love a good Smear...!'}]
     }
   ],
 
   activeRoom: {
-    title: 'Music is Life',
-    messages: [ { user: 'ChatBot', message: 'Welcome to React Chat -- Built using React, Redux, Express, and Socket.io'}, { user: 'Scott Mescudi', message: 'Wait, what are these words?'}]
-
+    title: '',
+    messages: []
   }
-
 }
