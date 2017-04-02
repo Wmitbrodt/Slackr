@@ -39,7 +39,6 @@ button.btn-custom {
     border-color: transparent;
     background-color: #02ccba; }
 
-/* Forms */
 input.form-control {
   background: linear-gradient(to right, rgba(2, 204, 186, 0.1) 0%, rgba(2, 160, 184, 0.1) 100%);
   border-radius: .5em;

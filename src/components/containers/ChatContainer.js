@@ -110,7 +110,8 @@ class ChatContainer extends Component {
         <FileUploader />
 
        </div>
-     
+
+
     )
 
   }
