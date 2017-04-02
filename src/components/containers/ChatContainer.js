@@ -75,40 +75,47 @@ class ChatContainer extends Component {
 
   return (
 
-    <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="#">Willr Chat</a>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Navbar.Text>
-        Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
-      </Navbar.Text>
-      <Navbar.Text pullRight>
-        Have a great day!
-      </Navbar.Text>
-    </Navbar.Collapse>
-  </Navbar>
+    <div className='nav'>
+      <Navbar>
+         <Navbar.Header>
+           <Navbar.Brand>
+             <a href="#">Willr Chat</a>
+           </Navbar.Brand>
+           <Navbar.Toggle />
+         </Navbar.Header>
+         <Navbar.Collapse>
+           <Navbar.Text>
+             Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
+           </Navbar.Text>
+           <Navbar.Text pullRight>
+             Have a great day!
+           </Navbar.Text>
+         </Navbar.Collapse>
+       </Navbar>
 
-      <div className="container">
-        <ChatLog messages={this.props.messages} image={''}/>
-        <form>
-          <FormGroup>
-            <InputGroup>
-            <FormControl onChange={this.handleOnChange} value={this.state.input}/>
-            <InputGroup.Addon >
-              <Glyphicon glyph="pencil" />
-              </InputGroup.Addon>
-            <InputGroup.Button>
-              <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go! </Button>
-            </InputGroup.Button>
-          </InputGroup>
-        </FormGroup>
-        </form>
-        <FileUploader />
-      </div>
+
+   <div className='container'>
+
+   <ChatLog messages={this.props.messages} image={''}/>
+   <form>
+     <FormGroup>
+       <InputGroup>
+       <FormControl onChange={this.handleOnChange} value={this.state.input}/>
+       <InputGroup.Addon >
+         <Glyphicon glyph="pencil" />
+         </InputGroup.Addon>
+       <InputGroup.Button>
+         <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go! </Button>
+       </InputGroup.Button>
+     </InputGroup>
+   </FormGroup>
+   </form>
+   <FileUploader />
+
+  </div>
+
+</div>
+
 
 
     )
