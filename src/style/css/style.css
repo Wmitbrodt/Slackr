@@ -12,6 +12,17 @@
 #home-h1 {
   padding: 4em 0 2em 0; }
 
+.navbar-default {
+  background-color: red !important;
+  background: linear-gradient(to right, #614385 0%, #516395 100%);
+  border-color: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  margin-bottom: 80px !important;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
 .btn-transparent {
   background-color: #fff;
   margin-top: 7px;

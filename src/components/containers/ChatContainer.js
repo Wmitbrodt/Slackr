@@ -75,7 +75,7 @@ class ChatContainer extends Component {
 
   return (
 
-    <div className='nav'>
+    <div className='react-nav'>
       <Navbar>
          <Navbar.Header>
            <Navbar.Brand>

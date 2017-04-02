@@ -1,7 +1,9 @@
-$green: rgb(2, 204, 186);
-$green-tint: rgba(2, 204, 186, 0.1);
-$blue: rgb(2,160,184);
-$blue-tint: rgba(2, 160, 184, 0.1);
+$color1: rgb(2, 204, 186);
+$color1-tint: rgba(2, 204, 186, 0.1);
+$color2: rgb(2,160,184);
+$color2-tint: rgba(2, 160, 184, 0.1);
+$color3: #614385;
+$color4: #516395;
 
 @mixin transition($x) {
   -webkit-transition: $x;
@@ -17,6 +19,12 @@ $blue-tint: rgba(2, 160, 184, 0.1);
   border-radius: $x;
 }
 
+body {
+  //font-family: 'Della Respira', serif;
+  //
+
+}
+
 ///////////////* HOME PAGE *////////////////
 #home-h1 {
   color: #fff;
@@ -30,13 +38,36 @@ $blue-tint: rgba(2, 160, 184, 0.1);
 #home {
   //background: linear-gradient(to right, #02CCBA 0%, #348ac7 100%);
   height: 100%!important;
-  background: linear-gradient(#614385, #516395);
+  background: linear-gradient($color3, $color4);
   text-align: center;
 }
 
 #home-h1 {
   padding: 4em 0 2em 0;
 }
+///////////////////* NAVBAR *//////////////////////
+
+.navbar-default {
+    background-color: red!important;
+    background: linear-gradient(to right, $color3 0%, $color4 100%);
+    border-color: none!important;
+    border-radius: 0!important;
+    border: none!important;
+    box-shadow: 0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28);
+    margin-bottom: 80px!important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+// .navbar-nav>li>a {
+//        padding-top: 10px;
+//        padding-bottom: 10px;
+//        border-color: none;
+//        border-radius: 0;
+//    }
+
+
 
 ///////////////////* BUTTONS */////////////////////
 
@@ -51,8 +82,8 @@ $blue-tint: rgba(2, 160, 184, 0.1);
 button.btn-custom {
   background-color: transparent;
   margin-top: 7px;
-  color: $green;
-  border-color: $green;
+  color: $color1;
+  border-color: $color1;
   letter-spacing: .1em;
   padding: .2em 2.5em .2em 2.5em;
   border-radius: .5em;
@@ -61,7 +92,7 @@ button.btn-custom {
   &:hover {
     color: #fff;
     border-color: transparent;
-    background-color: $green;
+    background-color: $color1;
   }
 }
 
@@ -69,18 +100,18 @@ button.btn-custom {
 ///////////////* Forms */////////////
 
 input.form-control {
-  background: linear-gradient(to right, $green-tint 0%, $blue-tint 100%);
+  background: linear-gradient(to right, $color1-tint 0%, $color2-tint 100%);
   border-radius: .5em;
   border-top-right-radius: .5em!important;
   border-bottom-right-radius: .5em!important;
   padding: .2em 6em .2em 6em;
-  border-color: $green;
+  border-color: $color1;
 }
 
 input.input-group input.form-control {
   border-top-right-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
-  border-color: $green;
+  border-color: $color1;
 }
 
 input.input-group input.form-control:first-child {
@@ -89,7 +120,7 @@ input.input-group input.form-control:first-child {
 }
 
 input.form-control:focus {
-    border-color: $green;
+    border-color: $color1;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
@@ -98,7 +129,7 @@ input.form-control:focus {
 input, select, textarea{
   font-size: 1.2em;
   padding: 10px;
-  text-shadow: 0px 0px 0px $green;
+  text-shadow: 0px 0px 0px $color1;
   -webkit-text-fill-color: transparent;
 }
 
