@@ -107,21 +107,25 @@ class ChatContainer extends Component {
 
    <div className='container'>
 
-   <ChatLog messages={this.props.messages} image={''}/>
-   <form>
-     <FormGroup>
-       <InputGroup>
-       <FormControl onChange={this.handleOnChange} value={this.state.input}/>
-       <InputGroup.Addon >
-         <Glyphicon glyph="pencil" />
-         </InputGroup.Addon>
-       <InputGroup.Button>
-         <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go! </Button>
-       </InputGroup.Button>
-     </InputGroup>
-   </FormGroup>
-   </form>
-   <FileUploader />
+         <ChatLog messages={this.props.messages} image={''}/>
+         <Row>
+           <Col md={8} Col mdPush={4}>
+         <form>
+           <FormGroup>
+             <InputGroup>
+             <FormControl onChange={this.handleOnChange} value={this.state.input}/>
+             <InputGroup.Addon >
+               <Glyphicon glyph="pencil" />
+               </InputGroup.Addon>
+             <InputGroup.Button>
+               <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go! </Button>
+             </InputGroup.Button>
+           </InputGroup>
+         </FormGroup>
+         </form>
+         <FileUploader />
+       </Col>
+     </Row>
 
   </div>
 

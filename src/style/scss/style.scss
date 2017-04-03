@@ -1,8 +1,8 @@
-$color1: rgb(2, 204, 186);
+$color1: rgb(76,150,137);
 $color1-tint: rgba(2, 204, 186, 0.1);
 $color2: rgb(2,160,184);
 $color2-tint: rgba(2, 160, 184, 0.1);
-$color3: #614385;
+$color3: rgb(77,57,75);
 $color4: #516395;
 
 @mixin transition($x) {
@@ -48,7 +48,7 @@ body {
 ///////////////////* NAVBAR *//////////////////////
 
 .navbar-default {
-    background: linear-gradient(to right, #614385 0%, #516395 100%);
+    background-color: $color3!important;
     border-color: none !important;
     border-radius: 0 !important;
     border: none !important;
@@ -149,11 +149,11 @@ input, select, textarea{
 .list-group {
     padding-left: 0;
     margin-bottom: 20px;
-    background: linear-gradient(to right, $color3 0%, $color4 100%);
+    background-color: $color3!important;
 }
 
 #left-background {
-  background: linear-gradient(to right, $color3 0%, $color4 100%);
+  background-color: $color3!important;
 }
 
 .list-group-item {
@@ -163,7 +163,7 @@ input, select, textarea{
     padding-left: 60px!important;
     margin-bottom: -1px;
     color: #fff!important;
-    background: linear-gradient(to right, $color3 0%, $color4 100%)!important;
+    background-color: $color3!important;
     border: none!important;
     &:hover {
       color: #fff;
@@ -183,5 +183,15 @@ input, select, textarea{
 }
 
 div.col-left-background {
-  background: linear-gradient(to right, $color3 0%, $color4 100%)!important;
+  background-color: $color3!important;
+}
+
+/////////////////////* CHAT LOG */////////////////////////
+
+.show-grid {
+
+}
+
+.chat-log {
+  padding-top: 60px!important;
 }
