@@ -54,7 +54,8 @@ body {
     border-radius: 0!important;
     border: none!important;
     box-shadow: 0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28);
-    margin-bottom: 80px!important;
+    // margin-bottom: 80px!important;
+    margin-bottom: 0px!important;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -157,9 +158,19 @@ input, select, textarea{
     background: linear-gradient(to right, $color3 0%, $color4 100%)!important;
     border: none!important;
     padding-left: 60!important;
-
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      background: $color1!important;
+    &:focus {
+      background: $color1!important;
+      outline: -webkit-focus-ring-color auto 5px;
+      outline: $color4 solid 2px;
+    }
+  }
 }
 
 #left-col-header {
   padding-left: 75px;
+  color: #fff;
 }

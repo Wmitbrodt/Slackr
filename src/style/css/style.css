@@ -19,7 +19,7 @@
   border-radius: 0 !important;
   border: none !important;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
-  margin-bottom: 80px !important;
+  margin-bottom: 0px !important;
   padding-top: 5px;
   padding-bottom: 5px; }
 
@@ -96,6 +96,15 @@ input, select, textarea {
   background: linear-gradient(to right, #614385 0%, #516395 100%) !important;
   border: none !important;
   padding-left: 60 !important; }
+  .list-group-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #02ccba !important; }
+    .list-group-item:hover:focus {
+      background: #02ccba !important;
+      outline: -webkit-focus-ring-color auto 5px;
+      outline: #516395 solid 2px; }
 
 #left-col-header {
-  padding-left: 75px; }
+  padding-left: 75px;
+  color: #fff; }

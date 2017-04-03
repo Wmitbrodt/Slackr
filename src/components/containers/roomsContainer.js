@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ListGroup, ListGroupItem, Col, Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import * as roomActions from '../../actions/roomActions'
+import * as messageActions from '../../actions/messagesActions'
 import { bindActionCreators } from 'redux'
 import NewRoom from '../newRoom'
 
@@ -60,7 +61,7 @@ class RoomsContainer extends Component {
           <ListGroup>
             <Row>
               <Col mdPush={1} >
-                 <h5 id="left-col-header">All Rooms</h5>
+                 <h5 id="left-col-header">All Rooms<br/>signed in as: {this.props.user}</h5>
                </Col>
             </Row>
 
