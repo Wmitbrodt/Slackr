@@ -13,8 +13,8 @@ export default (props) => {
       <Grid>
         <Row className="show-grid">
           <RoomsContainer />
-          
-             <Col md={8} xs={8}>
+          <br/><br/><br/><br/><br/>
+             <Col md={8} Col mdPull={2} xs={8}>
                 {messages}
               </Col>
          </Row>

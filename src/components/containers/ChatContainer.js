@@ -83,18 +83,17 @@ class ChatContainer extends Component {
           <Navbar >
             <Navbar.Text>
 
-                 <a href="#">Willr Chat</a>
-                    <br/>
-                Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
-              </Navbar.Text>
+               <a href="#">Willr Chat</a>
+                  <br/>
+              Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
+            </Navbar.Text>
+
              <Navbar.Header>
                <Navbar.Toggle />
              </Navbar.Header>
              <Navbar.Collapse>
-
-
                <Navbar.Text pullRight>
-                 Have a great day!
+                 I'm lonely here, and need a border-bottom :(
                </Navbar.Text>
              </Navbar.Collapse>
 
@@ -109,7 +108,7 @@ class ChatContainer extends Component {
 
          <ChatLog messages={this.props.messages} image={''}/>
          <Row>
-           <Col md={8} Col mdPush={4}>
+           <Col md={12} Col mdPush={1}>
          <form>
            <FormGroup>
              <InputGroup>

@@ -57,9 +57,12 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
     position: fixed;
+    min-height:16px !important;
 }
 .navbar-fixed-top {
   box-shadow: none!important;
+  min-height:16px !important;
+  border-bottom: 1px solid #E8E8E8;
 }
 
 // .navbar-text {
@@ -182,9 +185,16 @@ input, select, textarea{
   color: #fff;
 }
 
+// #left-col {
+//   // width: 400px;
+//   position: fixed;
+// }
+
 div.col-left-background {
   background-color: $color3!important;
 }
+
+
 
 /////////////////////* CHAT LOG */////////////////////////
 

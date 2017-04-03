@@ -57,7 +57,7 @@ class RoomsContainer extends Component {
 
     return (
       <div>
-        <Col xs={4} mdPull={2}>
+        <Col md={3} Col sm={5} mdPull={2}>
           <ListGroup>
             <br/><br/><br/><br/>
             <Row>
@@ -66,9 +66,10 @@ class RoomsContainer extends Component {
                </Col>
             </Row>
 
-            {rooms}
-            <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
+
           </ListGroup>
+          {rooms}
+          <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
         </Col>
       </div>
     )
