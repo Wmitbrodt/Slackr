@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListGroup, ListGroupItem, Col } from 'react-bootstrap'
+import { ListGroup, ListGroupItem, Col, Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import * as roomActions from '../../actions/roomActions'
 import { bindActionCreators } from 'redux'
@@ -56,10 +56,16 @@ class RoomsContainer extends Component {
 
     return (
       <div>
-        <Col xs={4} mdPull={1}>
+        <Col xs={4} mdPull={2}>
           <ListGroup>
+            <Row>
+              <Col mdPush={1} >
+                 <h5 id="left-col-header">All Rooms</h5>
+               </Col>
+            </Row>
+
             {rooms}
-            <NewRoom handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
+            <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
           </ListGroup>
         </Col>
       </div>

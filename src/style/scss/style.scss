@@ -134,3 +134,32 @@ input, select, textarea{
 }
 
 ///////////////////* CHAT ROOM *//////////////////////
+
+
+//////////////* Left Col */////////////
+
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, $color3 0%, $color4 100%);
+}
+
+#left-background {
+  background: linear-gradient(to right, $color3 0%, $color4 100%);
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    color: #fff!important;
+    background: linear-gradient(to right, $color3 0%, $color4 100%)!important;
+    border: none!important;
+    padding-left: 60!important;
+
+}
+
+#left-col-header {
+  padding-left: 75px;
+}

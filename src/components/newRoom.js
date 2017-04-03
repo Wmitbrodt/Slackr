@@ -9,6 +9,7 @@ export default (props) => {
           <ControlLabel> Create a new Room </ControlLabel>
           <FormControl onChange={props.handleOnChange} value={props.value}>
           </FormControl>
+          <br/>
           <Button
             bsStyle="primary"
             bsSize="small"
