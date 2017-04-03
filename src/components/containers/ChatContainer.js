@@ -5,7 +5,7 @@ import * as roomActions from '../../actions/roomActions'
 import { bindActionCreators } from 'redux'
 import ChatLog from '../chatLog'
 import FileUploader from '../fileUpload'
-import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl, Navbar, Header } from 'react-bootstrap'
+import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl, Navbar, Header, Row } from 'react-bootstrap'
 
 
 class ChatContainer extends Component {
@@ -76,22 +76,33 @@ class ChatContainer extends Component {
   return (
 
     <div className='react-nav'>
-      <Navbar>
-         <Navbar.Header>
-           <Navbar.Brand>
-             <a href="#">Willr Chat</a>
-           </Navbar.Brand>
-           <Navbar.Toggle />
-         </Navbar.Header>
-         <Navbar.Collapse>
-           <Navbar.Text>
-             Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
-           </Navbar.Text>
-           <Navbar.Text pullRight>
-             Have a great day!
-           </Navbar.Text>
-         </Navbar.Collapse>
-       </Navbar>
+
+      <Row className="navbar-fixed-top">
+        <Col md={2} className="col-left-background">
+
+          <Navbar >
+            <Navbar.Text>
+
+                 <a href="#">Willr Chat</a>
+                    <br/>
+                Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
+              </Navbar.Text>
+             <Navbar.Header>
+               <Navbar.Toggle />
+             </Navbar.Header>
+             <Navbar.Collapse>
+
+
+               <Navbar.Text pullRight>
+                 Have a great day!
+               </Navbar.Text>
+             </Navbar.Collapse>
+
+           </Navbar>
+        </Col>
+      </Row>
+
+
 
 
    <div className='container'>

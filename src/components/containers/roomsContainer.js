@@ -59,9 +59,10 @@ class RoomsContainer extends Component {
       <div>
         <Col xs={4} mdPull={2}>
           <ListGroup>
+            <br/><br/><br/><br/>
             <Row>
               <Col mdPush={1} >
-                 <h5 id="left-col-header">All Rooms<br/>signed in as: {this.props.user}</h5>
+                 <h5 id="left-col-header">All Rooms</h5>
                </Col>
             </Row>
 

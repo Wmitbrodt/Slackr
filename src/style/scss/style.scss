@@ -48,17 +48,24 @@ body {
 ///////////////////* NAVBAR *//////////////////////
 
 .navbar-default {
-    background-color: red!important;
-    background: linear-gradient(to right, $color3 0%, $color4 100%);
-    border-color: none!important;
-    border-radius: 0!important;
-    border: none!important;
-    box-shadow: 0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28);
-    // margin-bottom: 80px!important;
-    margin-bottom: 0px!important;
+    background: linear-gradient(to right, #614385 0%, #516395 100%);
+    border-color: none !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none!important;
+    margin-bottom: 0px !important;
     padding-top: 5px;
     padding-bottom: 5px;
+    position: fixed;
 }
+.navbar-fixed-top {
+  box-shadow: none!important;
+}
+
+// .navbar-text {
+//   padding: 0px!important;
+//   margin: none;
+// }
 
 
 // .navbar-nav>li>a {
@@ -153,11 +160,11 @@ input, select, textarea{
     position: relative;
     display: block;
     padding: 10px 15px;
+    padding-left: 60px!important;
     margin-bottom: -1px;
     color: #fff!important;
     background: linear-gradient(to right, $color3 0%, $color4 100%)!important;
     border: none!important;
-    padding-left: 60!important;
     &:hover {
       color: #fff;
       text-decoration: none;
@@ -173,4 +180,8 @@ input, select, textarea{
 #left-col-header {
   padding-left: 75px;
   color: #fff;
+}
+
+div.col-left-background {
+  background: linear-gradient(to right, $color3 0%, $color4 100%)!important;
 }
