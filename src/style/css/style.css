@@ -13,7 +13,7 @@
   padding: 4em 0 2em 0; }
 
 .navbar-default {
-  background-color: #4d394b !important;
+  background-color: #fff !important;
   border-color: none !important;
   border-radius: 0 !important;
   border: none !important;
@@ -21,13 +21,14 @@
   margin-bottom: 0px !important;
   padding-top: 5px;
   padding-bottom: 5px;
-  position: fixed;
+  position: relative !important;
   min-height: 16px !important; }
 
 .navbar-fixed-top {
   box-shadow: none !important;
   min-height: 16px !important;
-  border-bottom: 1px solid #E8E8E8; }
+  border-bottom: 1px solid #E8E8E8;
+  z-index: -99 !important; }
 
 .btn-transparent {
   background-color: #fff;
@@ -91,7 +92,8 @@ input, select, textarea {
   background-color: #4d394b !important; }
 
 #left-background {
-  background-color: #4d394b !important; }
+  background-color: #4d394b !important;
+  padding-top: 40px !important; }
 
 .list-group-item {
   position: relative;
@@ -118,5 +120,27 @@ input, select, textarea {
 div.col-left-background {
   background-color: #4d394b !important; }
 
+.span-to-bottom {
+  height: 100% !important; }
+
+.show-grid {
+  z-index: -100 !important; }
+
 .chat-log {
   padding-top: 60px !important; }
+
+.content {
+  display: flex;
+  /* a container normally grows to the size of its content,
+   but to achieve an independant scrolling efffect we'll
+   have to force this to the height of the browser
+   and have it not display content that goes beyond those
+   limits */
+  height: 100vh;
+  overflow: hidden; }
+
+.posts {
+  margin-top: 50px;
+  /* because overflow was hidden on content, we have
+   to add the scroll on the y axis */
+  overflow-y: scroll; }

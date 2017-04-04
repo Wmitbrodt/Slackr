@@ -58,18 +58,19 @@ class RoomsContainer extends Component {
     return (
       <div>
         <Col md={3} Col sm={5} mdPull={2}>
-          <ListGroup>
-            <br/><br/><br/><br/>
+          <ListGroup className="span-to-bottom">
+            {/* <br/> */}
             <Row>
               <Col mdPush={1} >
+                 <h5 id="left-col-header">Signed in as: {this.props.user} </h5>
                  <h5 id="left-col-header">All Rooms</h5>
                </Col>
             </Row>
-
+            {rooms}
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
 
           </ListGroup>
-          {rooms}
-          <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
         </Col>
       </div>
     )
@@ -79,7 +80,7 @@ class RoomsContainer extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
- return { rooms: state.rooms }
+ return { rooms: state.rooms, user: state.user }
 }
 
 function mapDispatchToProps(dispatch) {

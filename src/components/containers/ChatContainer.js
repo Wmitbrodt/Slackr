@@ -78,9 +78,9 @@ class ChatContainer extends Component {
     <div className='react-nav'>
 
       <Row className="navbar-fixed-top">
-        <Col md={2} className="col-left-background">
+        <Col xs={10} Col xsPush={2}>
 
-          <Navbar >
+          <Navbar>
             <Navbar.Text>
 
                <a href="#">Willr Chat</a>
