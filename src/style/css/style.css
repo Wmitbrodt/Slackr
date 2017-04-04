@@ -63,8 +63,8 @@ button.btn-main {
   color: #fff;
   border-color: #4c9689;
   letter-spacing: .1em;
-  padding: .2em 2em .2em 2em;
-  border-radius: .5em;
+  padding: 0.2em 1em 0.2em 1em !important;
+  border-radius: .2em;
   font-size: 1.2em;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
@@ -103,6 +103,10 @@ input, select, textarea {
   padding: 10px;
   text-shadow: 0px 0px 0px #4c9689;
   -webkit-text-fill-color: transparent; }
+
+#control-label {
+  color: #fff;
+  padding-bottom: 5px; }
 
 .list-group {
   padding-left: 0;
@@ -144,9 +148,20 @@ input, select, textarea {
 #left-col-header {
   padding-left: 75px;
   color: #a1909e; }
+  #left-col-header:hover {
+    color: #fff; }
+
+#p-left-col {
+  padding-left: 75px;
+  color: #a1909e !important; }
+  #p-left-col:hover {
+    background: rgba(44, 45, 48, 0.5) !important;
+    overflow: none !important; }
 
 div.col-left-background {
   background-color: #4d394b !important; }
+  div.col-left-background:hover {
+    background: #4d394b !important; }
 
 .span-to-bottom {
   height: 100% !important;

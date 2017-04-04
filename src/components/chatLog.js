@@ -14,7 +14,7 @@ export default (props) => {
         <Row className="show-grid convo">
           <RoomsContainer />
           <br/><br/><br/><br/><br/>
-             <Col md={8} Col mdPush={2} xs={8} className="under">
+             <Col md={8} Col mdPush={2} xs={8} xsPush={2} className="under">
                 {messages}
               </Col>
          </Row>

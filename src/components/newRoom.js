@@ -6,7 +6,7 @@ export default (props) => {
     <ListGroupItem>
       <form>
         <FormGroup>
-          <ControlLabel> Create a new Room </ControlLabel>
+          <ControlLabel id="control-label"> Create a new Room </ControlLabel>
           <FormControl onChange={props.handleOnChange} value={props.value}>
           </FormControl>
           <br/>

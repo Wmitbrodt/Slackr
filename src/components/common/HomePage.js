@@ -34,7 +34,7 @@ class HomePage extends Component {
       <div className="container">
         <Row id="home-row">
           <Col md={8} mdPush={2} xs={12}>
-             <h1 id="home-h1"> What's up Doc? Got a name??? </h1>
+             <h1 id="home-h1"> Welcome to Demo Day. What's your name? </h1>
            </Col>
         </Row>
         <Row id="home-row">

@@ -74,7 +74,17 @@ class RoomsContainer extends Component {
               </Col>
             </Row>
             {rooms}
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <Row>
+              <Col mdPush={1} >
+                <h5 id="left-col-header">DIRECT MESSAGES</h5>
+                <p id="p-left-col">willrbot</p>
+                <p id="p-left-col">will (you)</p>
+                <p id="p-left-col">aldo</p>
+                <p id="p-left-col">roger</p>
+                <p id="p-left-col">mitchell</p>
+              </Col>
+            </Row>
+            
             <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
 
           </ListGroup>
