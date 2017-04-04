@@ -203,10 +203,3 @@ div.col-left-background {
   background-color: #fff !important;
   width: 80%;
   margin-top: 60px; }
-
-div.chat-block {
-  background: #fff;
-  &:hover {
-    background: #F9F9F9!important;
-  }
-}

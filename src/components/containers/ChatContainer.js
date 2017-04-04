@@ -90,7 +90,7 @@ class ChatContainer extends Component {
     <Navbar.Collapse>
       <Navbar.Form pullRight>
         <FormGroup>
-          <FormControl type="text" placeholder="Search" />
+          <FormControl type="text" placeholder="Search" className="nav-search" />
         </FormGroup>
         {' '}
 
@@ -104,7 +104,7 @@ class ChatContainer extends Component {
    <div className='container main-bottom'>
          <ChatLog messages={this.props.messages} image={''}/>
          <Row>
-           <Col md={6} Col mdPush={1}>
+           <Col md={11} Col mdPush={2}>
          <form>
            <FormGroup>
              <InputGroup>
