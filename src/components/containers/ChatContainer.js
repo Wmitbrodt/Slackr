@@ -81,23 +81,22 @@ class ChatContainer extends Component {
         <Col xs={10} Col xsPush={2}>
 
           <Navbar>
-            <Navbar.Text>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#">Willr</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Navbar.Form pullRight>
+        <FormGroup>
+          <FormControl type="text" placeholder="Search" />
+        </FormGroup>
+        {' '}
 
-               <a href="#">Willr Chat</a>
-
-
-            </Navbar.Text>
-
-             <Navbar.Header>
-               <Navbar.Toggle />
-             </Navbar.Header>
-             <Navbar.Collapse>
-               <Navbar.Text pullRight>
-                 I'm lonely here, and need a border-bottom :(
-               </Navbar.Text>
-             </Navbar.Collapse>
-
-           </Navbar>
+      </Navbar.Form>
+    </Navbar.Collapse>
+  </Navbar>
         </Col>
       </Row>
 
