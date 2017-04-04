@@ -57,6 +57,24 @@ button.btn-custom {
     border-color: transparent;
     background-color: #4c9689; }
 
+button.btn-main {
+  background-color: #4c9689;
+  margin-top: 7px;
+  color: #fff;
+  border-color: #4c9689;
+  letter-spacing: .1em;
+  padding: .2em 2em .2em 2em;
+  border-radius: .5em;
+  font-size: 1.2em;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; }
+  button.btn-main:hover {
+    color: #fff;
+    border-color: transparent;
+    background-color: #02a0b8; }
+
 input.form-control {
   background: linear-gradient(to right, rgba(2, 204, 186, 0.1) 0%, rgba(2, 160, 184, 0.1) 100%);
   border-radius: .5em;
@@ -101,21 +119,31 @@ input, select, textarea {
   padding: 10px 15px;
   padding-left: 60px !important;
   margin-bottom: -1px;
-  color: #fff !important;
+  color: #a1909e !important;
   background-color: #4d394b !important;
-  border: none !important; }
+  border: none !important;
+  line-height: 6px; }
   .list-group-item:hover {
     color: #fff;
     text-decoration: none;
-    background: #4c9689 !important; }
+    background: rgba(44, 45, 48, 0.5) !important; }
     .list-group-item:hover:focus {
       background: #4c9689 !important;
-      outline: -webkit-focus-ring-color auto 5px;
-      outline: #516395 solid 2px; }
+      outline: none !important;
+      outline: #516395 solid 2px;
+      color: #fff !important; }
+      .list-group-item:hover:focus:active {
+        background: #4c9689 !important;
+        color: #fff; }
+        .list-group-item:hover:focus:active:target {
+          background: #4c9689; }
+
+.list-group-item:target {
+  background: #4c9689; }
 
 #left-col-header {
   padding-left: 75px;
-  color: #fff; }
+  color: #a1909e; }
 
 div.col-left-background {
   background-color: #4d394b !important; }
@@ -152,3 +180,14 @@ div.col-left-background {
 
 .under {
   z-index: -999999 !important; }
+
+#push-bottom {
+  bottom: 10px;
+  z-index: -99;
+  position: fixed !important;
+  background-color: #fff !important;
+  width: 80%;
+  margin-top: 60px; }
+
+.chevron-down {
+  width: 5px; }

@@ -11,6 +11,7 @@ export default (props) => {
           </FormControl>
           <br/>
           <Button
+            className="btn-main"
             bsStyle="primary"
             bsSize="small"
             type="submit"

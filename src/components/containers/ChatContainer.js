@@ -84,8 +84,8 @@ class ChatContainer extends Component {
             <Navbar.Text>
 
                <a href="#">Willr Chat</a>
-                  <br/>
-              Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
+
+
             </Navbar.Text>
 
              <Navbar.Header>
@@ -102,33 +102,7 @@ class ChatContainer extends Component {
       </Row>
 
 
-
-
-      <Row className="navbar-fixed-top">
-        <Col xs={10} Col xsPush={2}>
-
-          <Navbar>
-            <Navbar.Text>
-
-               <a href="#">Willr Chat</a>
-                  <br/>
-              Signed in as: <Navbar.Link href="#">{this.props.user}</Navbar.Link>
-            </Navbar.Text>
-
-             <Navbar.Header>
-               <Navbar.Toggle />
-             </Navbar.Header>
-             <Navbar.Collapse>
-               <Navbar.Text pullRight>
-                 I'm lonely here, and need a border-bottom :(
-               </Navbar.Text>
-             </Navbar.Collapse>
-
-           </Navbar>
-        </Col>
-      </Row>
    <div className='container main-bottom'>
-
          <ChatLog messages={this.props.messages} image={''}/>
          <Row>
            <Col md={6} Col mdPush={1}>
@@ -149,7 +123,12 @@ class ChatContainer extends Component {
        </Col>
      </Row>
 
+
+
+
   </div>
+
+
 
 </div>
 

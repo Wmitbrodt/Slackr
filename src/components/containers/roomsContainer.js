@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListGroup, ListGroupItem, Col, Row } from 'react-bootstrap'
+import { ListGroup, ListGroupItem, Col, Row, Glyphicon } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import * as roomActions from '../../actions/roomActions'
 import * as messageActions from '../../actions/messagesActions'
@@ -62,9 +62,16 @@ class RoomsContainer extends Component {
             {/* <br/> */}
             <Row>
               <Col mdPush={1} >
-                 <h5 id="left-col-header">Signed in as: {this.props.user} </h5>
-                 <h5 id="left-col-header">All Rooms</h5>
+                 <h5 id="left-col-header">codecore <Glyphicon glyph="chevron-down" /></h5>
+
+                 <h5 id="left-col-header">{this.props.user}</h5>
+                 <h5 id="left-col-header">All Threads</h5>
                </Col>
+            </Row>
+            <Row>
+              <Col mdPush={1} >
+                <h5 id="left-col-header">CHANNELS (7)</h5>
+              </Col>
             </Row>
             {rooms}
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

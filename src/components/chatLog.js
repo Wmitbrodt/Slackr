@@ -12,15 +12,11 @@ export default (props) => {
     <div>
       <Grid>
         <Row className="show-grid convo">
-          {/* <div className="content">
-           <div className="posts"> */}
           <RoomsContainer />
           <br/><br/><br/><br/><br/>
              <Col md={8} Col mdPush={2} xs={8} className="under">
                 {messages}
               </Col>
-            {/* </div>
-          </div> */}
          </Row>
       </Grid>
     </div>

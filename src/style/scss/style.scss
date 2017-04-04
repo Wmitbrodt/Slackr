@@ -4,6 +4,7 @@ $color2: rgb(2,160,184);
 $color2-tint: rgba(2, 160, 184, 0.1);
 $color3: rgb(77,57,75);
 $color4: #516395;
+$slack-fade: rgb(161,144,158);
 
 @mixin transition($x) {
   -webkit-transition: $x;
@@ -66,6 +67,8 @@ body {
   z-index: -99!important;
 }
 
+
+
 // .navbar-text {
 //   padding: 0px!important;
 //   margin: none;
@@ -105,6 +108,23 @@ button.btn-custom {
     color: #fff;
     border-color: transparent;
     background-color: $color1;
+  }
+}
+
+button.btn-main {
+  background-color: $color1;
+  margin-top: 7px;
+  color: #fff;
+  border-color: $color1;
+  letter-spacing: .1em;
+  padding: .2em 2em .2em 2em;
+  border-radius: .5em;
+  font-size: 1.2em;
+  @include transition(all 0.4s ease-in-out);
+  &:hover {
+    color: #fff;
+    border-color: transparent;
+    background-color: $color2;
   }
 }
 
@@ -167,24 +187,37 @@ input, select, textarea{
     padding: 10px 15px;
     padding-left: 60px!important;
     margin-bottom: -1px;
-    color: #fff!important;
+    color: $slack-fade!important;
     background-color: $color3!important;
     border: none!important;
-    &:hover {
-      color: #fff;
-      text-decoration: none;
-      background: $color1!important;
-    &:focus {
-      background: $color1!important;
-      outline: -webkit-focus-ring-color auto 5px;
-      outline: $color4 solid 2px;
+    line-height: 6px;
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+        background: rgba(44,45,48,0.5)!important;
+      &:focus {
+        background: $color1!important;
+        outline: none!important;
+        outline: $color4 solid 2px;
+        color: #fff!important;
+      &:active {
+        background: $color1!important;
+        color: #fff;
+      &:target {
+        background: $color1;
+       }
+      }
     }
   }
 }
 
+.list-group-item:target {
+  background: $color1;
+}
+
 #left-col-header {
   padding-left: 75px;
-  color: #fff;
+  color: $slack-fade;
 }
 
 // #left-col {
@@ -246,9 +279,6 @@ div.col-left-background {
   overflow-y: scroll;
 }
 
-.main-bottom {
-
-}
 
 .convo {
   z-index: -99999!important;
@@ -256,4 +286,18 @@ div.col-left-background {
 
 .under {
   z-index: -999999!important;
+}
+
+#push-bottom {
+  bottom: 10px;
+  z-index: -99;
+  position: fixed!important;
+  background-color: #fff!important;
+  width: 80%;
+  margin-top: 60px;
+}
+/////////////* ICONS *//////////////
+
+.chevron-down {
+  width: 5px;
 }
