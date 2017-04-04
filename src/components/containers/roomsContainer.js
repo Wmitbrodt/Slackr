@@ -74,7 +74,7 @@ class RoomsContainer extends Component {
               </Col>
             </Row>
             {rooms}
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <NewRoom id="left-background" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
 
           </ListGroup>
