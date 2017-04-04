@@ -57,7 +57,7 @@ class RoomsContainer extends Component {
 
     return (
       <div>
-        <Col md={3} Col sm={5} mdPull={2}>
+        <Col md={2} Col sm={5} mdPull={2}>
           <ListGroup className="span-to-bottom">
             {/* <br/> */}
             <Row>

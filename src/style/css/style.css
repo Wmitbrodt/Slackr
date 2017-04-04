@@ -121,7 +121,9 @@ div.col-left-background {
   background-color: #4d394b !important; }
 
 .span-to-bottom {
-  height: 100% !important; }
+  height: 100% !important;
+  position: fixed !important;
+  width: 275px; }
 
 .show-grid {
   z-index: -100 !important; }
@@ -144,3 +146,9 @@ div.col-left-background {
   /* because overflow was hidden on content, we have
    to add the scroll on the y axis */
   overflow-y: scroll; }
+
+.convo {
+  z-index: -99999 !important; }
+
+.under {
+  z-index: -999999 !important; }

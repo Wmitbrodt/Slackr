@@ -198,6 +198,8 @@ div.col-left-background {
 
 .span-to-bottom {
   height: 100%!important;
+  position: fixed!important;
+  width: 275px;
 }
 
 // .sidebar {
@@ -242,4 +244,16 @@ div.col-left-background {
 /* because overflow was hidden on content, we have
    to add the scroll on the y axis */
   overflow-y: scroll;
+}
+
+.main-bottom {
+
+}
+
+.convo {
+  z-index: -99999!important;
+}
+
+.under {
+  z-index: -999999!important;
 }
