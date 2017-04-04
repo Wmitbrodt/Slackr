@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Alert, Panel, Image } from 'react-bootstrap'
+import { Col, Alert, Panel, Image, Glyphicon } from 'react-bootstrap'
 
 export default (props) => {
   let imageView;
@@ -14,8 +14,8 @@ export default (props) => {
     )
   }
    return (
-    <div>
-      <h5>{props.user}</h5>
+    <div className="chat-block">
+      <h5><Glyphicon glyph="user" /> {props.user}</h5>
         {props.message}
         {imageView || ''}
     </div>

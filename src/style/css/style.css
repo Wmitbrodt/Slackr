@@ -204,5 +204,9 @@ div.col-left-background {
   width: 80%;
   margin-top: 60px; }
 
-.chevron-down {
-  width: 5px; }
+div.chat-block {
+  background: #fff;
+  &:hover {
+    background: #F9F9F9!important;
+  }
+}

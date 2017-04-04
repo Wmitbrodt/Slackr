@@ -11,7 +11,7 @@ export default (props) => {
   return (
     <div>
       <Grid>
-        <Row className="show-grid convo">
+        <Row className="show-grid">
           <RoomsContainer />
           <br/><br/><br/><br/><br/>
              <Col md={8} Col mdPush={2} xs={8} xsPush={2} className="under">

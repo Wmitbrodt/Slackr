@@ -68,7 +68,7 @@ handleFile(ev) {
       <div className='col-sm-12'>
         <form onSubmit={this.handleOnSubmit} encType="multipart/form-data">
           <input type="file" onChange={this.handleFile} />
-          <input className="btn btn-success" type="submit" value="Upload"/>
+          <input className="btn btn-primary" type="submit" value="Upload"/>
         </form>
 
       </div>
