@@ -14,10 +14,14 @@ export default (props) => {
     )
   }
    return (
-    <div className="chat-block">
-      <h5><Glyphicon glyph="user" /> {props.user}</h5>
-        {props.message}
-        {imageView || ''}
+
+      <div className="media">
+        <div className="media-body">
+          <h4 className="media-heading"><Glyphicon glyph="user" /> {props.user}</h4>
+          {props.message}
+          {imageView || ''}
+        </div>
     </div>
+
   )
 }

@@ -44,7 +44,7 @@ class HomePage extends Component {
                 <InputGroup value={this.state.input}>
                  <FormControl onChange={this.handleOnChange} />
                   <br/><br/>
-                 <Button className="btn-custom" type='submit'> Get Chatting </Button>
+                 <Button className="btn-custom" type='submit'>Chat</Button>
                 </InputGroup>
               </FormGroup>
             </form>

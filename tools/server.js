@@ -21,6 +21,9 @@ const port = 5000;
 const app = express();
 const server = Server(app)
 const compiler = webpack(config);
+// Here we are defining a variable io, setting it equal to a new instance of
+// socket.io by passing it the server to listen on.
+
 const io = socket(server)
 const staticPath = path.join(__dirname, '..', '/public')
 
@@ -72,6 +75,9 @@ app.get('/', function(req, res) {
   console.log('get route caught this')
   res.sendFile(path.join( __dirname, '../src/index.html'));
 });
+
+// and here we are telling our socket to listen for any connections to the
+// server and log a statement whenever a user connects.
 
 io.on('connection', function(socket) {
   console.log('a user connected')

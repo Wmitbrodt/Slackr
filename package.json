@@ -17,6 +17,7 @@
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
     "mongodb": "^2.2.16",
     "mongoose": "^4.9.3",
     "node-sass": "^4.5.2",
