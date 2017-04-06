@@ -2184,10 +2184,6 @@ follow-redirects@1.0.0:
   dependencies:
     debug "^2.2.0"
 
-font-awesome@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
-
 for-in@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -3411,6 +3407,10 @@ mocha@2.4.5:
     mkdirp "0.5.1"
     supports-color "1.2.0"
 
+moment@^2.18.1:
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+
 mongodb-core@2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.9.tgz#85aa71ee4fb716196e06b787557bf139f801daf5"
@@ -4358,6 +4358,10 @@ react-dom@^15.4.0:
 react-favicon@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/react-favicon/-/react-favicon-0.0.4.tgz#3367406a1b0d632b690b5d1ce48e9b086970ebc5"
+
+react-fontawesome@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-fontawesome/-/react-fontawesome-1.5.0.tgz#879d1b2aa5c48bba551e9237f84993217b5645c4"
 
 react-overlays@^0.6.12:
   version "0.6.12"

@@ -1,8 +1,7 @@
 import messageApi from '../api/messageApi';
 
-export function joinRoom(roomData) {
-  const payload = roomData.data
-  return { type: 'JOIN_ROOM', payload}
+export function joinRoom(roomPayload) {
+  return { type: 'JOIN_ROOM', roomPayload}
 }
 
 export function newRoom(room) {
@@ -23,12 +22,12 @@ export function newRoomSuccess(payload){
 export function updateRoomList(payload){
   return { type: 'UPDATE_ROOM_LIST', payload}
 }
-export function fetchRoomData(){
-  console.log('in fetch room')
+export function fetchRoomData(room){
   return (dispatch) => {
     return messageApi.fetchRoom()
       .then((response) => {
-        dispatch(joinRoom(response))
+        const payload = {room, data: response.data}
+        dispatch(joinRoom(payload))
       })
     return response
   }

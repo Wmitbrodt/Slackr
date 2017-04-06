@@ -19,6 +19,7 @@ export default {
 
   activeRoom: {
     title: '',
-    messages: []
+    messages: [],
+    id: null
   }
 }

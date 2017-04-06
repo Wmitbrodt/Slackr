@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+import { FormGroup, FormControl, ControlLabel, Glyphicon } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import FontAwesome from 'react-fontawesome'
 
 class FileUploader extends Component {
   constructor(props) {
@@ -68,7 +69,7 @@ handleFile(ev) {
       <div className='col-sm-12'>
         <form onSubmit={this.handleOnSubmit} encType="multipart/form-data">
           <input type="file" onChange={this.handleFile} />
-          <input className="btn btn-primary" type="submit" value="Upload"/>
+          <input className="btn-file" type="submit" value="Upload"/>
         </form>
 
       </div>

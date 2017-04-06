@@ -5,7 +5,9 @@ import * as roomActions from '../../actions/roomActions'
 import { bindActionCreators } from 'redux'
 import ChatLog from '../chatLog'
 import FileUploader from '../fileUpload'
-import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl, Navbar, Header, Row } from 'react-bootstrap'
+import { Image, Glyphicon, InputGroup, PageHeader, Col, Button, FormGroup, FormControl, Navbar, Header, Row, Breadcrumb } from 'react-bootstrap'
+import FontAwesome from 'react-fontawesome'
+
 
 
 class ChatContainer extends Component {
@@ -83,17 +85,36 @@ class ChatContainer extends Component {
           <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">Willr</a>
+        <div class="bold"><FontAwesome name='hashtag' /> january-2017-bootcamp</div>
+        <Breadcrumb>
+          <Breadcrumb.Item active>
+            <Glyphicon glyph="star-empty" />
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            <FontAwesome name='user-o' /> 52
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            <FontAwesome name='thumb-tack' /> 3
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            <em>Add a topic</em>
+          </Breadcrumb.Item>
+      </Breadcrumb>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Navbar.Form pullRight>
+        <FontAwesome name='phone' />
+        <FontAwesome name='cog' />
+        <FontAwesome name='id-card-o' />
         <FormGroup>
           <FormControl type="text" placeholder="Search" className="nav-search" />
         </FormGroup>
         {' '}
-
+        <FontAwesome name='at' />
+        <FontAwesome name='star-o' />
+        <FontAwesome name='ellipsis-v' />
       </Navbar.Form>
     </Navbar.Collapse>
   </Navbar>
@@ -104,16 +125,13 @@ class ChatContainer extends Component {
    <div className='container main-bottom'>
          <ChatLog messages={this.props.messages} image={''}/>
          <Row>
-           <Col md={11} Col mdPush={2}>
+           <Col md={10} Col mdPush={2}>
          <form>
            <FormGroup>
              <InputGroup>
              <FormControl onChange={this.handleOnChange} value={this.state.input}/>
-             <InputGroup.Addon >
-               <Glyphicon glyph="pencil" />
-               </InputGroup.Addon>
              <InputGroup.Button>
-               <Button bsStyle="success" type="submit" onClick={this.handleOnSubmit}> Go! </Button>
+               <Button bsStyle="btn-custom" type="submit" onClick={this.handleOnSubmit}> Chat </Button>
              </InputGroup.Button>
            </InputGroup>
          </FormGroup>

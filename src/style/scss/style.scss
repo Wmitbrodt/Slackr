@@ -1,10 +1,14 @@
 $color1: rgb(76,150,137);
 $color1-tint: rgba(2, 204, 186, 0.1);
+$color1-dark: rgb(59,116,106);
 $color2: rgb(2,160,184);
 $color2-tint: rgba(2, 160, 184, 0.1);
 $color3: rgb(77,57,75);
 $color4: #516395;
 $slack-fade: rgb(161,144,158);
+$slack-border: rgba(113,114,116,.5);
+$icon-hover-blue: #2D9CF5;
+$slack-black: #2C2D30;
 
 @mixin transition($x) {
   -webkit-transition: $x;
@@ -20,24 +24,23 @@ $slack-fade: rgb(161,144,158);
   border-radius: $x;
 }
 
-body {
-  //font-family: 'Della Respira', serif;
-  //
-
+html, body, h1, h2, h3, h4, h5, p, li {
+  font-family: 'Lato', sans-serif!important;
 }
 
 ///////////////* HOME PAGE *////////////////
 #home-h1 {
   color: #fff;
+  font-size: 52px;
+  padding: 4em 0 1em 0;
+  letter-spacing: 4px;
 }
 
 #main {
-  //background: linear-gradient(to right, #02CCBA 0%, #348ac7 100%);
   min-height: 100%;
 }
 
 #home {
-  background: linear-gradient($color3, $color4);
   width: 100%;
   height: 100%!important;
   background-size: cover!important;
@@ -45,10 +48,8 @@ body {
   background: linear-gradient(rgba($color3, 0.8), rgba($color4, 0.8)), url('/images/willr.jpg');
   text-align: center;
 }
+// linear-gradient(160deg, #02CCBA 0%, #AA7ECD 100%)
 
-#home-h1 {
-  padding: 4em 0 2em 0;
-}
 ///////////////////* NAVBAR *//////////////////////
 
 .navbar-default {
@@ -70,24 +71,26 @@ body {
   z-index: -99!important;
 }
 
+ol.breadcrumb {
+  padding: 0px!important;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #fff!important;
+  border-radius: 4px;
+  font-size: 12px;
+  color: $slack-border!important;
+}
 
+.navbar-brand {
+  padding: 4px 0px 0px 6px!important;
+  color: $slack-black!important;
+  font-weight: 900!important;
+  line-height: 1.3!important;
+}
 
-// .navbar-text {
-//   padding: 0px!important;
-//   margin: none;
-// }
-
-
-// .navbar-nav>li>a {
-//        padding-top: 10px;
-//        padding-bottom: 10px;
-//        border-color: none;
-//        border-radius: 0;
-//    }
-// input {
-//   padding: 0px!important;
-// }
-
+#slack-span {
+  font-weight: 900!important;
+}
 
 ///////////////////* BUTTONS */////////////////////
 
@@ -133,16 +136,45 @@ button.btn-main {
   }
 }
 
+input.btn-file {
+  background-color: transparent;
+  margin-top: 7px;
+  color: #fff!important;
+  border-color: $color1;
+  letter-spacing: .1em;
+  padding: .2em 1em .2em 1em!important;
+  border-radius: .2em;
+  font-size: 1.2em;
+  @include transition(all 0.4s ease-in-out);
+  &:hover {
+    border-color: transparent;
+    background-color: $color1-dark;
+    color: #fff;
+  }
+}
+
+button.btn.btn-btn-custom {
+  background: $color1;
+  color: #fff;
+  @include transition(all 0.4s ease-in-out);
+  border-radius: .35em!important;
+  margin-left: 10px!important;
+  &:hover {
+    background: $color2;
+  }
+}
+
+
 
 ///////////////* Forms */////////////
 
 input.form-control {
-  background: linear-gradient(to right, $color1-tint 0%, $color2-tint 100%);
+  background: transparent;
   border-radius: .5em;
   border-top-right-radius: .5em!important;
   border-bottom-right-radius: .5em!important;
   padding: .2em 6em .2em 6em;
-  border-color: $color1;
+  border-color: 1px solid $slack-border;
 }
 
 input.input-group input.form-control {
@@ -190,6 +222,13 @@ input, select, textarea{
   background-color: $color3!important;
   padding-top: 40px!important;
 }
+#left-background-bottom {
+  background-color: $color3!important;
+  padding-top: 40px!important;
+  &:hover {
+    background-color: $color3!important;
+  }
+}
 
 .list-group-item {
     position: relative;
@@ -219,6 +258,13 @@ input, select, textarea{
       }
     }
   }
+}
+
+.selected-channel {
+  background: $color1!important;
+  outline: none!important;
+  outline: $color4 solid 2px;
+  color: #fff!important;
 }
 
 .list-group-item:target {
@@ -311,6 +357,7 @@ div.col-left-background {
 
 .under {
   z-index: -999999!important;
+  padding-left: 30px!important;
 }
 
 #push-bottom {
@@ -321,4 +368,57 @@ div.col-left-background {
   width: 80%;
   margin-top: 60px;
 }
+.media-padding {
+  padding-left: 39px;
+}
 /////////////* ICONS *//////////////
+
+.fa-heart, .fa-circle {
+  color: $color1;
+}
+
+.fa-phone {
+  color: $slack-border;
+  font-size: 18px!important;
+  padding-right: 18px;
+}
+
+.fa-cog {
+  color: $slack-border;
+  font-size: 18px!important;
+  padding-right: 18px;
+  &:hover {
+    color: $icon-hover-blue!important;
+  }
+}
+
+.fa-id-card-o {
+  color: $slack-border;
+  font-size: 18px!important;
+  padding-right: 18px;
+}
+
+.fa-at {
+  color: $slack-border;
+  font-size: 18px!important;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+.fa-star-o {
+  color: $slack-border;
+  font-size: 18px!important;
+  padding-right: 18px;
+}
+
+.fa-ellipsis-v {
+  color: $slack-border;
+  font-size: 18px!important;
+  padding-right: 0px;
+}
+
+.fa-plus-circle {
+  color: $slack-border;
+  float: right;
+  padding-right: 40px;
+}

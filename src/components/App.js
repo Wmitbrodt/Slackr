@@ -4,6 +4,9 @@ import HomePage from './common/HomePage'
 import { connect } from 'react-redux'
 import '../style/css/style.css'
 
+
+
+
 class App extends React.Component {
   constructor(props){
     super(props)
