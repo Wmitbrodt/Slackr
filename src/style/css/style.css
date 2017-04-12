@@ -314,3 +314,11 @@ div.col-left-background {
   color: rgba(113, 114, 116, 0.5);
   float: right;
   padding-right: 40px; }
+
+.fa-bell-o {
+  color: rgba(113, 114, 116, 0.5);
+  float: right;
+  padding-right: 40px;
+  padding-top: 2px; }
+  .fa-bell-o:hover {
+    color: #fff; }

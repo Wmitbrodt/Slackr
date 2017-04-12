@@ -422,3 +422,13 @@ div.col-left-background {
   float: right;
   padding-right: 40px;
 }
+
+.fa-bell-o {
+  color: $slack-border;
+  float: right;
+  padding-right: 40px;
+  padding-top: 2px;
+  &:hover {
+    color: #fff;
+  }
+}

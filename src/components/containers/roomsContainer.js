@@ -53,7 +53,7 @@ class RoomsContainer extends Component {
       const isSelected = (room._id == activeRoom.id) ? "selected-channel" : ""
       return (
         <ListGroupItem className={isSelected} key={room.title} onClick={this.handleOnClick.bind(null, room)}>
-          {room.title}
+          <FontAwesome name='hashtag' /> {room.title}
         </ListGroupItem>
       )
     })
@@ -65,7 +65,7 @@ class RoomsContainer extends Component {
             {/* <br/> */}
             <Row>
               <Col mdPush={1} >
-                 <h4 id="left-col-header">codecore <FontAwesome name='angle-down' /></h4>
+                 <h4 id="left-col-header">codecore <FontAwesome name='angle-down' /><FontAwesome name='bell-o' /></h4>
 
                  <h5 id="left-col-header"><FontAwesome name='circle' /> {this.props.user}</h5>
                  <h5 id="left-col-header"><FontAwesome name='commenting-o' /> All Threads</h5>
@@ -76,7 +76,7 @@ class RoomsContainer extends Component {
                 <h5 id="left-col-header">CHANNELS (7) <FontAwesome name='plus-circle' /></h5>
               </Col>
             </Row>
-            <p>{rooms}</p>
+            {rooms}
             <br/>
             <Row>
               <Col mdPush={1} >
@@ -88,7 +88,7 @@ class RoomsContainer extends Component {
                 <p id="p-left-col"><FontAwesome name='circle' /> billy</p>
               </Col>
             </Row>
-            
+
             <NewRoom id="left-background-bottom" handleOnChange={this.handleOnChange} handleNewRoom={this.handleNewRoom} value={this.state.input}/>
           </ListGroup>
         </Col>
