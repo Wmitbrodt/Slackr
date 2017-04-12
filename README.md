@@ -13,6 +13,6 @@ Slackr uses a number of open source projects:
 * [React](https://facebook.github.io/react/) - a javascript library for building user interfaces.
 * [node.js](https://github.com/nodejs) - evented I/O for the backend
 * [React Bootstrap](https://react-bootstrap.github.io/) - the most popular front-end framework, rebuilt for react.
-* [Express] - fast node.js network app framework [@tjholowaychuk]
+* [Express](https://github.com/expressjs/express) - fast node.js network app framework 
 * [Mongo DB](https://www.mongodb.com/) - the streaming build system.
 * [Redux](https://github.com/reactjs/redux) - predictable state container for Javascript apps.
