@@ -1,1 +1,1 @@
-web: $(npm bin)/babel-node .tools/server.js
+web: $(npm bin)/babel-node ./tools/server.js
