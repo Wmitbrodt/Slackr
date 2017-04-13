@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "prestart": "./node_modules/babel-cli/bin/babel-node.js tools/startMessage.js",
-    "start": "npm-run-all --parallel open:src lint:watch",
+    "start": "babel-node --presets es2015 tools/server.js",
     "open:src": "./node_modules/babel-cli/bin/babel-node.js tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
