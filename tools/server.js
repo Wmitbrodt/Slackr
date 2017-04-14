@@ -14,7 +14,7 @@ import Room from '../db/roomSchema'
 import { Binary } from 'mongodb'
 import serveStatic from 'serve-static'
 import imageDecoder from './imageDecoder'
-
+require('dotenv').config()
 
 
 const port = 5000;
@@ -141,7 +141,8 @@ io.on('connection', function(socket) {
   })
 });
 
-mongoose.connect('mongodb://wmitbrodt:bosco@ds139438.mlab.com:39438/wills-react-chat')
+
+mongoose.connect(process.env['DB_HOST'])
 const db = mongoose.connection;
 
 db.once('open', () => {
