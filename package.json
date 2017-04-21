@@ -11,8 +11,7 @@
     "lint": "node_modules/.bin/esw webpack.config.* client server",
     "lint:watch": "npm run lint -- --watch",
     "scss-compile": "node-sass -rw src/style/scss -o src/style/css",
-    "build": "NODE_ENV=production webpack --config ./webpack.config.production.js --progress ; npm run build-server",
-    "build-server": "babel server -d dist/server",
+    "build": "NODE_ENV=production webpack --config ./webpack.config.production.js --progress ",
     "watch": "npm run scss-compile"
   },
   "dependencies": {
