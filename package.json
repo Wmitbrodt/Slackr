@@ -7,6 +7,7 @@
     "test": "test",
     "prestart": "./node_modules/babel-cli/bin/babel-node.js server/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
+    "build": "webpack --config ./webpack.config.production.js --progress",
     "open:src": "./node_modules/babel-cli/bin/babel-node.js server/index.js",
     "lint": "node_modules/.bin/esw webpack.config.* src server",
     "lint:watch": "npm run lint -- --watch",
