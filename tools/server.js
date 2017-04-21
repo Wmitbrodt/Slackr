@@ -9,8 +9,8 @@ import { Server } from 'http'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import mongoose from 'mongoose'
-import Message from '../db/messageSchema'
-import Room from '../db/roomSchema'
+import Message from './db/messageSchema'
+import Room from './db/roomSchema'
 import { Binary } from 'mongodb'
 import serveStatic from 'serve-static'
 import imageDecoder from './imageDecoder'
@@ -72,7 +72,8 @@ app.post('/rooms', (req, res) => {
 })
 
 app.get('/', function(req, res) {
-  console.log('get route caught this')
+  console.log('get route caught this', path.join( __dirname, '../dist/index.html'))
+
   res.sendFile(path.join( __dirname, '../src/index.html'));
 });
 
