@@ -14,7 +14,6 @@ class App extends React.Component {
 
   }
 
-
   currentUser(){
    return !!this.props.user
   }

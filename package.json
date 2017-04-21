@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "prestart": "./node_modules/babel-cli/bin/babel-node.js tools/startMessage.js",
-    "start": "babel-node --presets es2015 tools/server.js",
-    "open:src": "./node_modules/babel-cli/bin/babel-node.js tools/server.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "prestart": "./node_modules/babel-cli/bin/babel-node.js server/startMessage.js",
+    "start": "babel-node --presets es2015 server/index.js",
+    "open:src": "./node_modules/babel-cli/bin/babel-node.js server/index.js",
+    "lint": "node_modules/.bin/esw webpack.config.* client server",
     "lint:watch": "npm run lint -- --watch",
     "scss-compile": "node-sass -rw src/style/scss -o src/style/css",
+    "build": "NODE_ENV=production webpack --config ./webpack.config.production.js --progress ; npm run build-server",
+    "build-server": "babel server -d dist/server",
     "watch": "npm run scss-compile"
   },
   "dependencies": {
