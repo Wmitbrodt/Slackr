@@ -1,7 +1,6 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import config from '../webpack.config.dev';
 import open from 'open';
 import favicon from 'serve-favicon';
 import socket from 'socket.io'
@@ -14,30 +13,24 @@ import Room from './db/roomSchema'
 import { Binary } from 'mongodb'
 import serveStatic from 'serve-static'
 import imageDecoder from './imageDecoder'
-
+import config from '../webpack.config.dev.js'
+require('dotenv').config()
 
 
 const port = 5000;
 const app = express();
 const server = Server(app)
-const compiler = webpack(config);
 // Here we are defining a variable io, setting it equal to a new instance of
 // socket.io by passing it the server to listen on.
 
 const io = socket(server)
 const staticPath = path.join(__dirname, '..', '/public')
-
 var room;
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: config.output.publicPath
-}));
-
-app.use(require('webpack-hot-middleware')(compiler));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+//serve up assets
+app.use('/dist', express.static('dist'))
 app.use(serveStatic(staticPath))
 
 app.get('/messages', (req, res) => {
@@ -56,9 +49,17 @@ app.get('/rooms', (req, res) => {
 })
 
 app.post('/rooms', (req, res) => {
-  let message = new Message({user: req.body.messages[0].user, content: req.body.messages[0].content, room: req.body.title})
+  let message = new Message({
+    user: req.body.messages[0].user,
+    content: req.body.messages[0].content,
+    room: req.body.title
+  })
+
   console.log('message', message)
-  let room = new Room({title: req.body.title})
+
+  let room = new Room({
+    title: req.body.title
+  })
 
   message.save((err) => {
     if (err) return err
@@ -72,9 +73,8 @@ app.post('/rooms', (req, res) => {
 })
 
 app.get('/', function(req, res) {
-  console.log('get route caught this', path.join( __dirname, '../dist/index.html'))
-
-  res.sendFile(path.join( __dirname, '../src/index.html'));
+  console.log('get route caught this', path.join( __dirname, '../client/index.html'))
+  res.sendFile(path.join( __dirname, '../dist/index.html'));
 });
 
 // and here we are telling our socket to listen for any connections to the
@@ -88,6 +88,7 @@ io.on('connection', function(socket) {
     console.log('joined room', room)
    }
   )
+
   socket.on('unsubscribe', () => { socket.leave(room)
     console.log('leaving room', room)
   })
@@ -99,7 +100,13 @@ io.on('connection', function(socket) {
   socket.on('chat message', function(msg) {
     console.log('sending message to', msg.room)
     console.log('this message', msg)
-    let message = new Message({user: msg.user, content: msg.message, room: msg.room})
+
+    let message = new Message({
+      user: msg.user,
+      content: msg.message,
+      room: msg.room
+    })
+
     message.save((err) => {
         if (err) return err
       })
@@ -108,7 +115,12 @@ io.on('connection', function(socket) {
   })
 
   socket.on('new room', (roomData) => {
-    let message = new Message({user: roomData.user, content: roomData.message, room: roomData.room})
+    let message = new Message({
+      user: roomData.user,
+      content: roomData.message,
+      room: roomData.room
+    })
+
     message.save((err) => {
       if (err) return err
     })
@@ -142,7 +154,8 @@ io.on('connection', function(socket) {
   })
 });
 
-mongoose.connect('mongodb://wmitbrodt:bosco@ds139438.mlab.com:39438/wills-react-chat')
+
+mongoose.connect(process.env['DB_HOST'])
 const db = mongoose.connection;
 
 db.once('open', () => {
