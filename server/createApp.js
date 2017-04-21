@@ -7,9 +7,8 @@ var roomsRouter = require('./routes/rooms')
 
 module.exports = function(){
   const app = express()
-  const indexPath = path.join(__dirname, '/../public/index.html')
-  const publicPath = express.static(path.join(__dirname, '../public'))
-
+  const indexPath = path.join(__dirname, '../public/index.html')
+  const publicPath = express.static(path.join(__dirname, '..', '..', 'public'))
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true}));
   app.use('/public', publicPath)

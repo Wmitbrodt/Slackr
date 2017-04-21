@@ -30,7 +30,7 @@ var server = Server(app)
 var io = createSockets(server)
 
 //serve up assets
-var port = 5000;
+var port = process.env['PORT'] || 5000;
 
 mongoose.connect(process.env['DB_HOST'])
 var db = mongoose.connection;
