@@ -1,7 +1,7 @@
-export default (dataString) => {
-  const matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+function imageDecoder(dataString){
+  var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
     response = {}
-  
+
   if (matches.length !== 3) {
     return new Error('Invalid input string');
   }
@@ -11,3 +11,5 @@ export default (dataString) => {
 
   return response
 }
+
+module.exports = imageDecoder

@@ -20,23 +20,28 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
+
   module: {
     rules: [
       { test: /\.js?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/ },
+        exclude: /node_modules/
+      },
       { test: /\.css?$/,
-        loader: 'style-loader!css-loader!',
-        include: path.join(__dirname, 'src', 'styles', 'css') },
+        loader: ['css-loader'],
+      },
       { test: /\.scss?$/,
-        loader: 'style-loader!css-loader!sass-loader',
-        include: path.join(__dirname, 'src', 'styles', 'scss') },
+        loader: ['style-loader', 'css-loader', 'sass-loader'],
+      },
       { test: /\.png$/,
-        loader: 'file' },
+        loader: 'file'
+      },
       { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file'},
+        loader: 'file'
+      },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml'}
+        loader: 'url?limit=10000&mimetype=image/svg+xml'
+      }
     ]
   }
 };

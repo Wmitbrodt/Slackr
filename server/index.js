@@ -10,10 +10,6 @@ var Server = require('http').Server;
 var mongoose = require('mongoose');
 var Binary = require('mongodb').Binary;
 
-//webpack
-var webpack = require('webpack');
-var config = require('../webpack.config.dev.js');
-
 // function takes server as an argument returns configured sockets instance
 var createSockets = require('./createSockets')
 // function returns configured express instance
@@ -36,13 +32,11 @@ mongoose.connect(process.env['DB_HOST'])
 var db = mongoose.connection;
 
 db.once('open', () => {
- server.listen(port, function(err) {
-   if (err) {
-     console.log(err);
-   } else {
-     open(`http://localhost:${port}`);
-  }
-});
-
-
+   server.listen(port, function(err) {
+     if (err) {
+       console.log(err);
+     } else {
+       open(`http://localhost:${port}`);
+    }
+  });
 })

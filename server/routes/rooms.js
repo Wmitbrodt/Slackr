@@ -1,5 +1,7 @@
 var express = require('express')
 var roomsRouter = express.Router()
+var Room = require('../db/roomSchema')
+var Message = require('../db/messageSchema')
 
 roomsRouter.get('/rooms', function (req, res){
   console.log('in fetch rooms')

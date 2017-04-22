@@ -1,16 +1,16 @@
-import mongoose from 'mongoose'
+var mongoose = require('mongoose')
 // import imageSchema from './imageSchema'
 
-const imageSchema = mongoose.Schema({
+var imageSchema = mongoose.Schema({
    data: String,
    contentType: String
-}) 
+})
 
-const messageSchema = mongoose.Schema({
+var messageSchema = mongoose.Schema({
   user: String,
   content: String,
   room: String,
-  image: String 
+  image: String
 })
 
-export default mongoose.model('Message', messageSchema)
+module.exports = mongoose.model('Message', messageSchema)

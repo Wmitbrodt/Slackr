@@ -6,7 +6,7 @@ var Message = require('./db/messageSchema');
 var Room = require('./db/roomSchema');
 
 module.exports = function createSockets(server){
-  const io = socket(server)
+  var io = socket(server)
   // and here we are telling our socket to listen for any connections to the
   // server and log a statement whenever a user connects.
 
@@ -33,7 +33,7 @@ module.exports = function createSockets(server){
       console.log('sending message to', msg.room)
       console.log('this message', msg)
 
-      let message = new Message({
+      var message = new Message({
         user: msg.user,
         content: msg.message,
         room: msg.room
@@ -47,7 +47,7 @@ module.exports = function createSockets(server){
     })
 
     socket.on('new room', function(roomData){
-      let message = new Message({
+      var message = new Message({
         user: roomData.user,
         content: roomData.message,
         room: roomData.room

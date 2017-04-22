@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+var mongoose = require('mongoose')
 
-const imageSchema = mongoose.Schema({
+var imageSchema = mongoose.Schema({
   img: { data: Buffer,
     contentType: String
   }
-}) 
+})
 
-export default mongoose.model('Image', imageSchema)
+module.exports = mongoose.model('Image', imageSchema)
