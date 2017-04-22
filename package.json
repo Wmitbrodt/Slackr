@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node server/index.js --development --progress --colors ",
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress"
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress && node server/index.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
