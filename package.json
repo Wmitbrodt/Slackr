@@ -4,7 +4,7 @@
   "description": "pair on code problems with real live humans!",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack --config ./webpack.config.js --progress; node server/startMessage.js ; node server/index.js",
+    "start": "node server/index.js --development --progress --colors ",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress"
   },
   "dependencies": {
@@ -19,7 +19,6 @@
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.6",
     "react-dom": "^15.4.0",
-    "react-favicon": "0.0.4",
     "react-fontawesome": "^1.5.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
@@ -47,6 +46,7 @@
     "node-sass": "^4.5.2",
     "npm-run-all": "1.8.0",
     "open": "0.0.5",
+    "react-hot-loader": "^3.0.0-beta.6",
     "redux-mock-store": "1.0.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.16.1",

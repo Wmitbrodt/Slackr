@@ -2,8 +2,11 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
+// routers
 var messagesRouter = require('./routes/messages')
 var roomsRouter = require('./routes/rooms')
+
+var isDevelopment = process.argv.indexOf('--development') !== -1;
 
 module.exports = function(){
   var app = express()
@@ -15,9 +18,29 @@ module.exports = function(){
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true}));
-  app.use('/public', publicPath)
+
+  //set routing
   app.use(messagesRouter)
   app.use(roomsRouter)
+
+  if (isDevelopment) {
+    // use webpack if in development
+    var webpack = require('webpack');
+    var webpackConfig = require('../webpack.config');
+
+    var compiler = webpack(webpackConfig);
+    var webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
+      hot: true,
+      stats: {
+        colors: true
+      }
+    })
+
+    var webpackHotMiddleWare = require('webpack-hot-middleware')(compiler)
+    app.use(webpackDevMiddleware);
+    app.use(webpackHotMiddleWare);
+
+  }
 
   app.get('/', function (req, res) {
     res.sendFile(indexPath)

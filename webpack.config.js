@@ -5,8 +5,10 @@ module.exports = {
   devtool: 'eval',
 
   entry: [
+    'react-hot-loader/patch',
     'eventsource-polyfill',
-    'webpack-hot-middleware/client?reload=true',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
     './src/index',
   ],
 
@@ -18,6 +20,7 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
 
@@ -43,5 +46,15 @@ module.exports = {
         loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
     ]
-  }
+  },
+  devServer: {
+    host: 'localhost',
+    port: 5000,
+
+    historyApiFallback: true,
+    // respond to 404s with index.html
+
+    hot: true,
+    // enable HMR on the server
+  },
 };
