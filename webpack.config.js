@@ -5,10 +5,9 @@ module.exports = {
   devtool: 'eval',
 
   entry: [
+    'webpack-hot-middleware/client?reload=true',
     'react-hot-loader/patch',
     'eventsource-polyfill',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
     './src/index',
   ],
 
@@ -36,21 +35,25 @@ module.exports = {
       { test: /\.scss?$/,
         loader: ['style-loader', 'css-loader', 'sass-loader'],
       },
-      { test: /\.png$/,
-        loader: 'file'
+      { test: /\.(jpg|gif|png|svg)$/,
+        // loader: 'url?name=[path][name].[ext]&limit=10000',
+        loader: 'file-loader',
       },
       { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file'
+        loader: 'file-loader'
       },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml'
-      }
+      },
     ]
   },
+
   devServer: {
+    // allow cross origin requests
+    headers: { "Access-Control-Allow-Origin": "*" },
     host: 'localhost',
     port: 5000,
-
+    public:'localhost:5000',
     historyApiFallback: true,
     // respond to 404s with index.html
 

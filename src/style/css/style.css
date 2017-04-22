@@ -15,7 +15,7 @@ html, body, h1, h2, h3, h4, h5, p, li {
   height: 100% !important;
   background-size: cover !important;
   background-position: center center;
-  background: linear-gradient(rgba(77, 57, 75, 0.8), rgba(81, 99, 149, 0.8)), url("/images/willr.jpg");
+  background: linear-gradient(rgba(77, 57, 75, 0.8), rgba(81, 99, 149, 0.8)), url("../../../public/images/willr.jpg");
   text-align: center; }
 
 .navbar-default {
