@@ -1,7 +1,7 @@
 var Message = require('../db/messageSchema');
 var Room = require('../db/roomSchema');
 
-function messages(socket){
+function messages(socket, io){
   socket.on('chat message', function(msg){
     console.log('sending message to', msg.room)
     console.log('this message', msg)

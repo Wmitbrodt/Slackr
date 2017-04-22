@@ -1,4 +1,4 @@
-function subscriptions(socket){
+function subscriptions(socket, io){
   socket.on('subscribe', function(data){
     var room = data.room
     socket.join(room)
