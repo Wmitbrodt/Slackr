@@ -5,7 +5,8 @@ module.exports = {
   devtool: 'source-map',
 
   entry: [
-    './src/index'
+    'eventsource-polyfill',
+    './src/index',
   ],
 
   output: {

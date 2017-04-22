@@ -1,7 +1,7 @@
 {
-  "name": "react-pair",
+  "name": "slackr",
   "version": "1.0.0",
-  "description": "pair on code problems with real live humans!",
+  "description": "lets chat!",
   "main": "./src/index.js",
   "scripts": {
     "start": "node server/index.js --development --progress --colors ",
