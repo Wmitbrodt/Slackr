@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 // routers
 var messagesRouter = require('./routes/messages')
@@ -16,6 +17,9 @@ module.exports = function(){
   //setting static path
   var publicPath = express.static('public')
 
+  // enable cross origin resource sharing
+  app.use(cors())
+  app.use(publicPath)
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true}));
 

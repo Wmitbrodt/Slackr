@@ -16,7 +16,7 @@ function messages(socket, io){
         if (err) return err
       })
 
-    io.to(msg.room).emit('chat message', JSON.stringify(msg))
+    socket.emit('chat message', JSON.stringify(msg))
   })
 
   socket.on('new room', function(roomData){

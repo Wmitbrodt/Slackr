@@ -41,11 +41,11 @@ module.exports = {
       { test: /\.scss?$/,
         loader: ['style-loader', 'css-loader', 'sass-loader'],
       },
-      { test: /\.png$/,
-        loader: 'file'
+      { test: /\.(jpg|gif|png|svg)$/,
+        loader: 'file-loader'
       },
       { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file'
+        loader: 'file-loader'
       },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml'

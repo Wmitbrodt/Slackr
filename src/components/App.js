@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {this.currentUser() ? <ChatContainer /> : <HomePage />}
+        {this.currentUser() ? <ChatContainer room={{title: 'general'}}/> : <HomePage />}
       </div>
     )
   }

@@ -7,9 +7,12 @@ function subscriptions(socket, io){
   )
 
   socket.on('unsubscribe', function(data){
-    var room = data.room
-    socket.leave(room)
-    console.log('leaving room', room)
+    console.log('leaving room', data)
+    if(data){
+      var room = data.room
+      socket.leave(room)
+
+    }
   })
 
   socket.on('disconnect', function(){
